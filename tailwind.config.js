@@ -18,8 +18,8 @@ module.exports = {
         'btn': '5px 5px 0px rgba(0,0,0,1)',
       },
       backgroundImage: {
-        'hero-pattern': "url('/')",
-        'footer-texture': "url('/img/footer-texture.png')",
+        'hero-pattern': "url('/img/hero.png')",
+        'footer-texture': "url('/img/footer-pattern.png')",
       }
     },
   },
