@@ -4,11 +4,6 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    container: {
-      screens: { 'default': '1300px' },
-      center: true,
-      padding: "16px"
-    },
     fontFamily: {
       roboto: ['"Roboto"', 'sans-serif'],
       work: ['"Work Sans"', 'sans-serif']
@@ -23,6 +18,15 @@ module.exports = {
       },
       fontSize: {
         '10xl': '160px',
+      },
+      container: {
+        screens: { 
+          'xs': '600px',
+          'sm': '800px',
+          'default': '1300px'
+        },
+        center: true,
+        padding: "16px"
       }
     },
   },

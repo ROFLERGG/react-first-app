@@ -42,10 +42,16 @@ function Hero() {
       {/* content */}
       <div className='flex-1 flex bg-hero bg-cover bg-center bg-no-repeat'>
         <div className="container flex flex-col justify-center">
-          <div className='flex flex-col justify-center'>
-            <div className='flex flex-col items-start mx-auto space-x-12'>
-              <h2 className='text-9xl'>Land a job</h2>
-              <h2 className='text-9xl'>the easy way</h2>
+          <div className='flex flex-col justify-center space-y-6'>
+            <div className='flex flex-col items-start whitespace-nowrap mx-auto space-x-48'>
+              <h2 className='text-10xl leading-none'>Land a job</h2>
+              <h2 className='text-10xl leading-none'>the easy way</h2>
+            </div>
+            <div className='flex flex-col space-y-12'>
+              <p className='text-2xl mx-auto'>The best place to discover & apply to the coolest 
+                <br /> 
+                start up jobs, without the black box.
+              </p>
             </div>
           </div>
         </div>
