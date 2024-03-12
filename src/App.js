@@ -40,7 +40,16 @@ function Hero() {
     <div className='flex flex-col min-h-screen'>
       <Header/>
       {/* content */}
-      <div className='bg-[url:]'></div>
+      <div className='flex-1 flex bg-hero bg-cover bg-center bg-no-repeat'>
+        <div className="container flex flex-col justify-center">
+          <div className='flex flex-col justify-center'>
+            <div className='flex flex-col items-start mx-auto space-x-12'>
+              <h2 className='text-9xl'>Land a job</h2>
+              <h2 className='text-9xl'>the easy way</h2>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

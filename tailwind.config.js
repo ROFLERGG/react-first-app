@@ -18,8 +18,11 @@ module.exports = {
         'btn': '5px 5px 0px rgba(0,0,0,1)',
       },
       backgroundImage: {
-        'hero-pattern': "url('/img/hero.png')",
-        'footer-texture': "url('/img/footer-pattern.png')",
+        'hero': "url('./img/hero.png')",
+        'footer': "url('./img/footer-pattern.png')",
+      },
+      fontSize: {
+        '10xl': '160px',
       }
     },
   },
