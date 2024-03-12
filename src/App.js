@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css'
 
-function Button({variant, children}) {
+function Button({ variant, children }) {
   if (variant === "primary") {
     return (
       <button className='px-8 py-3 bg-white border border-black w-fit rounded-lg text-black font-roboto shadow-btn'>{children}</button>
@@ -38,18 +38,19 @@ function Header() {
 function Hero() {
   return (
     <div className='flex flex-col min-h-screen'>
-      <Header/>
+      <Header />
       {/* content */}
       <div className='flex-1 flex bg-hero bg-cover bg-center bg-no-repeat'>
         <div className="container flex flex-col justify-center">
-          <div className='flex flex-col justify-center space-y-6'>
-            <div className='flex flex-col items-start space-x-48 max-xl:text-8xl'>
-              <h2 className='text-10xl leading-none'>Land a job</h2>
-              <h2 className='text-10xl leading-none'>the easy way</h2>
+          <div className='flex flex-col justify-center space-y-12'>
+            <div className='flex flex-col items-start space-x-48 mx-auto w-fit max-xl:space-x-24 max-lg:space-x-0'>
+              <h2 className='text-10xl leading-none max-xl:text-9xl font-roboto'>Land a job</h2>
+              <h2 className='text-10xl leading-none max-xl:text-9xl font-roboto'>the easy way</h2>
             </div>
             <div className='flex flex-col space-y-12'>
-              <p className='text-2xl mx-auto'>The best place to discover & apply to the coolest 
-                <br /> 
+              <p className='text-2xl mx-auto max-lg:mx-0'>
+                The best place to discover & apply to the coolest
+                <br />
                 start up jobs, without the black box.
               </p>
             </div>
@@ -63,7 +64,7 @@ function Hero() {
 function App() {
   return (
     // hero screen
-      <Hero/>
+    <Hero />
   );
 }
 
