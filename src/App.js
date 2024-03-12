@@ -43,7 +43,7 @@ function Hero() {
       <div className='flex-1 flex bg-hero bg-cover bg-center bg-no-repeat'>
         <div className="container flex flex-col justify-center">
           <div className='flex flex-col justify-center space-y-6'>
-            <div className='flex flex-col items-start whitespace-nowrap mx-auto space-x-48'>
+            <div className='flex flex-col items-start space-x-48 max-xl:text-8xl'>
               <h2 className='text-10xl leading-none'>Land a job</h2>
               <h2 className='text-10xl leading-none'>the easy way</h2>
             </div>
