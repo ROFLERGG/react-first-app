@@ -4,6 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    container: {
+      screens: { 'default': '1300px' },
+      center: true,
+      padding: "16px"
+    },
     fontFamily: {
       roboto: ['"Roboto"', 'sans-serif'],
       work: ['"Work Sans"', 'sans-serif']
@@ -11,6 +16,10 @@ module.exports = {
     extend: {
       boxShadow: {
         'btn': '5px 5px 0px rgba(0,0,0,1)',
+      },
+      backgroundImage: {
+        'hero-pattern': "url('/')",
+        'footer-texture': "url('/img/footer-texture.png')",
       }
     },
   },
