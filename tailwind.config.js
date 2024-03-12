@@ -4,11 +4,14 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    fontFamily: {
+      roboto: ['"Roboto"', 'sans-serif'],
+      work: ['"Work Sans"', 'sans-serif']
+    },
     extend: {
-      fontFamily: {
-        work: ["Work Sans", 'sans-serif'],
-        roboto: ["Roboto", 'sans-serif'],
-      },
+      boxShadow: {
+        'btn': '5px 5px 0px rgba(0,0,0,1)',
+      }
     },
   },
   plugins: [],
