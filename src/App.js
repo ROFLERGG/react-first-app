@@ -21,7 +21,7 @@ function Button({ variant, children }) {
 
 function Header() {
   return (
-    <header className='flex items-center px-8 py-4 max-lg:justify-end max-lg:px-2'>
+    <header className='flex items-center px-8 py-4 max-lg:justify-end max-lg:px-2 max-lg:py-0'>
       <div className='flex w-full max-lg:hidden'>
         <div className='flex-1'></div>
         <div className='flex flex-1 justify-center space-x-6'>
@@ -49,9 +49,9 @@ function Hero() {
     <div className='flex flex-col min-h-screen'>
       <Header />
       {/* content */}
-      <div className='flex-1 flex bg-hero bg-cover bg-center bg-no-repeat max-lg:flex-none'>
+      <div className='flex-1 flex bg-hero bg-cover bg-center bg-no-repeat'>
         <div className="container flex flex-col justify-center">
-          <div className='flex flex-col justify-center space-y-12 max-lg:items-start pt-4 pb-[60px]'>
+          <div className='flex flex-col justify-center py-[30px] space-y-12 max-lg:items-start'>
             <div>
               <div className='flex flex-col items-start space-x-48 mx-auto w-fit max-xl:space-x-24 max-lg:space-x-0 max-lg:mx-0'>
                 <h2 className='text-10xl leading-none max-xl:text-9xl max-md:text-8xl max-sm:text-7xl font-roboto'>Land a job</h2>
@@ -63,9 +63,13 @@ function Hero() {
                 <p className='text-2xl mx-auto max-w-[600px] max-lg:mx-0'>
                   The best place to discover & apply to the coolest start up jobs, without the black box.
                 </p>
-                <div className='flex space-x-6 justify-between'>
+                <div className='flex space-x-6 justify-between max-sm:flex-col max-sm:space-x-0 max-sm:space-y-6'>
                   <input type="text"  className='outline-none bg-white w-full rounded border border-black px-3 py-3 font-roboto'/>
-                  <Button variant={"secondary"}>Explore</Button>
+                  <div className='flex items-center space-x-0 max-sm:space-x-3'>
+                    <div className='hidden w-full h-0.5 rounded-full bg-black flex-1 max-sm:block'></div>
+                    <Button variant={"secondary"}>Explore</Button>
+                    <div className='hidden w-full h-0.5 rounded-full bg-black flex-1 max-sm:block'></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -76,10 +80,24 @@ function Hero() {
   )
 }
 
+function Main() {
+  return (
+    <main>
+      {/* first section */}
+      <section className='bg-neutral-950 py-[60px]'>
+    
+      </section>
+    </main>
+  )
+}
+
 function App() {
   return (
     // hero screen
-    <Hero />
+    <>
+      <Hero/>
+      <Main/>
+    </>
   );
 }
 
