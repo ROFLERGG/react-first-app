@@ -80,12 +80,44 @@ function Hero() {
   )
 }
 
+const firstSectionCardList = [{
+    image: './img/',
+    title: 'Apply to humans',
+    description: '72% of applications are never seen by a human! With parallel you skip the line and go direct to the hiring team.',
+  }, {
+    image: './img/',
+    title: 'Instantly stand out',
+    description: 'Showcase your projects, passions and work ethos with Parallel Profile to stand out from the crowd.',
+  }, {
+    image: './img/',
+    title: 'Real time feedback',
+    description: "Don't get ghosted! Get feedback & notifications with every application, so that you’re never left wondering."
+  }
+];
+
+function FirstSectionCard() {
+  return (
+    firstSectionCardList.map(function(data) {
+      return (
+        <div className='flex-1 flex flex-col space-y-6 min-w-[320px]'>
+          <h2 className='text-2xl text-white font-roboto'>{data.title}</h2>
+          <p className='text-white'>{data.description}</p>
+        </div>
+      )
+    })
+  );
+}
+
 function Main() {
   return (
     <main>
       {/* first section */}
       <section className='bg-neutral-950 py-[60px]'>
-    
+        <div className='container'>
+          <div className='flex gap-24 flex-wrap'>
+            <FirstSectionCard/>
+          </div>
+        </div>
       </section>
     </main>
   )
