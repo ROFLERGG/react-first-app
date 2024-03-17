@@ -81,15 +81,15 @@ function Hero() {
 }
 
 const firstSectionCardList = [{
-    image: "/img/sectionCard-img1",
+    image: "/img/sectionCard-img1.png",
     title: 'Apply to humans',
     description: '72% of applications are never seen by a human! With parallel you skip the line and go direct to the hiring team.',
   }, {
-    image: '/img/sectionCard-img2',
+    image: '/img/sectionCard-img2.png',
     title: 'Instantly stand out',
     description: 'Showcase your projects, passions and work ethos with Parallel Profile to stand out from the crowd.',
   }, {
-    image: '/img/sectionCard-img3',
+    image: '/img/sectionCard-img3.png',
     title: 'Real time feedback',
     description: "Don't get ghosted! Get feedback & notifications with every application, so that you’re never left wondering."
   }
