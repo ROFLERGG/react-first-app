@@ -138,7 +138,7 @@ function JobCard() {
   return (
     JobCardList.map(function(data) {
       return (
-        <div className='flex flex-col shrink-0 snap-start max-w-[340px] space-y-6 p-8 border border-black rounded-lg'>
+        <div className='flex flex-col justify-between shrink-0 snap-start w-[340px] space-y-6 p-8 border border-black rounded-lg'>
           {/* card header */}
           <div className='flex justify-between items-start'>
             <img src={data.companyLogo} alt="company-logo" />
@@ -151,6 +151,14 @@ function JobCard() {
               <span>{data.companyName}</span>
               <div className='w-0.5 h-0.5 bg-black rounded-full'></div>
               <span>{data.location}</span>
+            </div>
+            <div className='flex items-center space-x-3'>
+              <div className='flex -space-x-1'>
+                <div className='w-8 h-8 bg-neutral-500 ring-2 ring-white'></div>
+                <div className='w-8 h-8 bg-neutral-500 ring-2 ring-white'></div>
+                <div className='w-8 h-8 bg-neutral-500 ring-2 ring-white'></div>
+              </div>
+              <p>Active Employees</p>
             </div>
           </div>
         </div>
