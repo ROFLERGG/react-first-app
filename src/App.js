@@ -112,27 +112,42 @@ function FirstSectionCard() {
 }
 
 const JobCardList = [{
-    companyImage: '',
+    companyImage: '/img/breef.png',
     title: 'Product Manager (Operations)',
     companyName: 'Breef',
     location: 'New York or Remote'
   }, {
-    companyImage: '',
+    companyImage: '/img/faire.png',
     title: 'Senior Site Reliability Engineer',
     companyName: 'Faire',
     location: 'Brazil'
   }, {
-    companyImage: '',
+    companyImage: '/img/ghia.png',
     title: 'Event Worker',
     companyName: 'Ghia',
     location: 'Los Angeles / New York City'
   }, {
-    companyImage: '',
+    companyImage: '/img/mrBeast.png',
     title: 'Talent Acquisition/Recruiting',
     companyName: 'Mr. Beast',
     location: 'Greenville NC'
   }
 ];
+
+function JobCard() {
+  return (
+    JobCardList.map(function(data) {
+      return (
+        <div className='flex flex-col space-y-6 p-4 border border-black rounded-lg'>
+          {/* card header */}
+          <div className='flex justify-between items-start'>
+            
+          </div>
+        </div>
+      )
+    })
+  )
+}
 
 function Main() {
   return (
