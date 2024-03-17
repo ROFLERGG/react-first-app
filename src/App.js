@@ -140,13 +140,15 @@ function JobCard() {
       return (
         <div className='flex flex-col justify-between shrink-0 snap-start w-[340px] space-y-6 p-8 border border-black rounded-lg'>
           {/* card header */}
-          <div className='flex justify-between items-start'>
-            <img src={data.companyLogo} alt="company-logo" />
-            <button><i class="fa-regular fa-heart fa-lg"></i></button>
+          <div className='flex flex-col space-y-3'>
+            <div className='flex justify-between items-start'>
+              <img src={data.companyLogo} alt="company-logo" />
+              <button><i class="fa-regular fa-heart fa-lg"></i></button>
+            </div>
+            <h2 className='text-xl'>{data.title}</h2>
           </div>
           {/* description */}
           <div className='flex flex-col space-y-3'>
-            <h2 className='text-xl'>{data.title}</h2>
             <div className='flex items-center space-x-2 text-sm'>
               <span>{data.companyName}</span>
               <div className='w-0.5 h-0.5 bg-black rounded-full'></div>
