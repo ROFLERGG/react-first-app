@@ -100,8 +100,10 @@ function FirstSectionCard() {
     firstSectionCardList.map(function(data) {
       return (
         <div className='flex-1 flex flex-col space-y-6 min-w-[320px]'>
-          <img src={data.image} width={60} height={60} alt="" />
-          <h2 className='text-2xl text-white font-roboto'>{data.title}</h2>
+          <div className='flex flex-col space-y-3'>
+            <img src={data.image} width={60} height={60} alt="" />
+            <h2 className='text-2xl text-white font-roboto'>{data.title}</h2>
+          </div>
           <p className='text-white'>{data.description}</p>
         </div>
       )
@@ -115,8 +117,13 @@ function Main() {
       {/* first section */}
       <section className='bg-neutral-950 py-[60px]'>
         <div className='container'>
-          <div className='flex gap-24 flex-wrap'>
-            <FirstSectionCard/>
+          <div className='flex flex-col space-y-6'>
+            <h2 className='text-6xl text-white max-w-[460px]'>Your new path
+            to hired.
+            </h2>
+            <div className='flex gap-24 flex-wrap'>
+              <FirstSectionCard/>
+            </div>
           </div>
         </div>
       </section>
