@@ -111,11 +111,34 @@ function FirstSectionCard() {
   );
 }
 
+const JobCardList = [{
+    companyImage: '',
+    title: 'Product Manager (Operations)',
+    companyName: 'Breef',
+    location: 'New York or Remote'
+  }, {
+    companyImage: '',
+    title: 'Senior Site Reliability Engineer',
+    companyName: 'Faire',
+    location: 'Brazil'
+  }, {
+    companyImage: '',
+    title: 'Event Worker',
+    companyName: 'Ghia',
+    location: 'Los Angeles / New York City'
+  }, {
+    companyImage: '',
+    title: 'Talent Acquisition/Recruiting',
+    companyName: 'Mr. Beast',
+    location: 'Greenville NC'
+  }
+];
+
 function Main() {
   return (
     <main>
       {/* first section */}
-      <section className='bg-neutral-950 py-[60px]'>
+      <section className='bg-neutral-950 py-[120px]'>
         <div className='container'>
           <div className='flex flex-col space-y-12'>
             <h2 className='text-6xl text-white font-roboto max-w-[460px]'>Your new path
@@ -128,16 +151,21 @@ function Main() {
         </div>
       </section>
       {/* second section */}
-      <section className='bg-white py-[60px]'>
+      <section className='bg-white py-[120px]'>
         <div className='container'>
           <div className='flex flex-col space-y-12'>
             {/* trending jobs */}
             <div className='flex flex-col'>
+              {/* title */}
               <div className='flex justify-between items-end'>
-                <h2 className='text-4xl font-roboto'>Trending jobs</h2>
-                <a href='' className='flex space-x-6'>
-                  View all
+                <h2 className='text-4xl font-roboto w-fit'>Trending jobs</h2>
+                <a href='' className='flex items-center space-x-3 whitespace-nowrap'>
+                  <span className='text-lg font-roboto'>View all</span>
+                  <i class="fa-solid fa-arrow-right-long"></i>
                 </a>
+              </div>
+              {/* card list */}
+              <div className='flex space-x-6'>
               </div>
             </div>
           </div>
