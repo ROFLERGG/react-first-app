@@ -99,7 +99,7 @@ function FirstSectionCard() {
   return (
     firstSectionCardList.map(function(data) {
       return (
-        <div className='flex-1 flex flex-col space-y-6 min-w-[320px]'>
+        <div className='flex-1 flex flex-col space-y-6 min-w-[260px]'>
           <div className='flex flex-col space-y-3'>
             <img src={data.image} width={60} height={60} alt="" />
             <h2 className='text-2xl text-white font-roboto'>{data.title}</h2>
@@ -117,12 +117,28 @@ function Main() {
       {/* first section */}
       <section className='bg-neutral-950 py-[60px]'>
         <div className='container'>
-          <div className='flex flex-col space-y-6'>
-            <h2 className='text-6xl text-white max-w-[460px]'>Your new path
+          <div className='flex flex-col space-y-12'>
+            <h2 className='text-6xl text-white font-roboto max-w-[460px]'>Your new path
             to hired.
             </h2>
-            <div className='flex gap-24 flex-wrap'>
+            <div className='flex gap-24 flex-wrap max-sm:gap-12'>
               <FirstSectionCard/>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* second section */}
+      <section className='bg-white py-[60px]'>
+        <div className='container'>
+          <div className='flex flex-col space-y-12'>
+            {/* trending jobs */}
+            <div className='flex flex-col'>
+              <div className='flex justify-between items-end'>
+                <h2 className='text-4xl font-roboto'>Trending jobs</h2>
+                <a href='' className='flex space-x-6'>
+                  View all
+                </a>
+              </div>
             </div>
           </div>
         </div>
