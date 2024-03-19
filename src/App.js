@@ -99,7 +99,7 @@ function FirstSectionCard() {
   return (
     firstSectionCardList.map(function(data) {
       return (
-        <div className='flex-1 flex flex-col space-y-6 min-w-[260px]'>
+        <div className='flex-1 flex flex-col space-y-6 min-w-[300px]'>
           <div className='flex flex-col space-y-3'>
             <img src={data.image} width={60} height={60} alt="" />
             <h2 className='text-2xl text-white font-roboto'>{data.title}</h2>
@@ -138,7 +138,7 @@ function JobCard() {
   return (
     JobCardList.map(function(data) {
       return (
-        <div className='flex flex-col justify-between shrink-0 snap-start w-[340px] space-y-6 p-8 border border-black rounded-lg'>
+        <a href='' className='group relative flex flex-col justify-between shrink-0 snap-start bg-white w-[340px] space-y-6 p-8 border border-black rounded-lg hover:-translate-y-2'>
           {/* card header */}
           <div className='flex flex-col space-y-3'>
             <div className='flex justify-between items-start'>
@@ -163,7 +163,8 @@ function JobCard() {
               <p>Active Employees</p>
             </div>
           </div>
-        </div>
+          <div className='absolute -top-6 left-0 w-full h-full group-hover:drop-shadow-card'></div>
+        </a>
       )
     })
   )
@@ -179,7 +180,7 @@ function Main() {
             <h2 className='text-6xl text-white font-roboto max-w-[460px]'>Your new path
             to hired.
             </h2>
-            <div className='flex gap-24 flex-wrap max-sm:gap-12'>
+            <div className='flex gap-24 flex-wrap max-md:gap-12'>
               <FirstSectionCard/>
             </div>
           </div>
@@ -190,7 +191,7 @@ function Main() {
         <div className='container'>
           <div className='flex flex-col space-y-12'>
             {/* trending jobs */}
-            <div className='flex flex-col space-y-6'>
+            <div className='flex flex-col space-y-6 overflow-x-hidden max-md:overflow-x-visible'>
               {/* title */}
               <div className='flex justify-between items-end'>
                 <h2 className='text-4xl font-roboto w-fit'>Trending jobs</h2>
@@ -200,7 +201,7 @@ function Main() {
                 </a>
               </div>
               {/* card list */}
-              <div className='flex justify-between space-x-6 snap-x snap-mandatory overflow-x-hidden'>
+              <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
                 <JobCard/>
               </div>
             </div>

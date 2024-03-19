@@ -16,6 +16,9 @@ module.exports = {
       boxShadow: {
         'btn': '5px 5px 0px rgba(0,0,0,1)',
       },
+      dropShadow: {
+        'card': '0px 5px 10px rgba(0,0,0,1)',
+      },
       backgroundImage: {
         'hero': "url('./public/img/hero.png)",
         'footer': "url('./public/footer-pattern.png')",
