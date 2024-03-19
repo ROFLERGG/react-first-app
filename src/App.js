@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.css'
 
 function Button({ variant, children }) {
@@ -138,7 +138,7 @@ function JobCard() {
   return (
     JobCardList.map(function(data) {
       return (
-        <a href='' className='group relative flex flex-col justify-between shrink-0 snap-start bg-white w-[340px] space-y-6 p-8 border border-black rounded-lg hover:-translate-y-2'>
+        <a href='' className='group relative flex flex-col justify-between shrink-0 snap-start bg-white w-[340px] space-y-6 p-8 border border-black rounded-lg'>
           {/* card header */}
           <div className='flex flex-col space-y-3'>
             <div className='flex justify-between items-start'>
@@ -163,12 +163,34 @@ function JobCard() {
               <p>Active Employees</p>
             </div>
           </div>
-          <div className='absolute -top-6 left-0 w-full h-full group-hover:drop-shadow-card'></div>
         </a>
       )
     })
   )
 }
+
+const CompanyCardList = [{
+  companyLogo: '/img/breef.png',
+  title: 'Product Manager (Operations)',
+  companyName: 'Breef',
+  location: 'New York or Remote'
+}, {
+  companyLogo: '/img/faire.png',
+  title: 'Senior Site Reliability Engineer',
+  companyName: 'Faire',
+  location: 'Brazil'
+}, {
+  companyLogo: '/img/ghia.png',
+  title: 'Event Worker',
+  companyName: 'Ghia',
+  location: 'Los Angeles / New York City'
+}, {
+  companyLogo: '/img/mrBeast.png',
+  title: 'Talent Acquisition/Recruiting',
+  companyName: 'Mr. Beast',
+  location: 'Greenville NC'
+}
+];
 
 function Main() {
   return (
@@ -189,7 +211,8 @@ function Main() {
       {/* second section */}
       <section className='bg-white py-[120px]'>
         <div className='container'>
-          <div className='flex flex-col space-y-12'>
+          {/* card lists */}
+          <div className='flex flex-col space-y-24'>
             {/* trending jobs */}
             <div className='flex flex-col space-y-6 overflow-x-hidden max-md:overflow-x-visible'>
               {/* title */}
@@ -203,6 +226,21 @@ function Main() {
               {/* card list */}
               <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
                 <JobCard/>
+              </div>
+            </div>
+            {/* top companies */}
+            <div className='flex flex-col space-y-6 overflow-x-hidden max-md:overflow-x-visible'>
+              {/* title */}
+              <div className='flex justify-between items-end'>
+                <h2 className='text-4xl font-roboto w-fit'>Top companies</h2>
+                <a href='' className='flex items-center space-x-3 whitespace-nowrap'>
+                  <span className='text-lg font-roboto'>View all</span>
+                  <i class="fa-solid fa-arrow-right-long"></i>
+                </a>
+              </div>
+              {/* card list */}
+              <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
+
               </div>
             </div>
           </div>
