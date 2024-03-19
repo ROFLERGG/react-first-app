@@ -136,32 +136,35 @@ const JobCardList = [{
 
 function JobCard() {
   return (
-    JobCardList.map(function(data) {
+    JobCardList.map(function(card) {
       return (
         <a href='' className='group relative flex flex-col justify-between shrink-0 snap-start bg-white w-[340px] space-y-6 p-8 border border-black rounded-lg'>
           {/* card header */}
           <div className='flex flex-col space-y-3'>
             <div className='flex justify-between items-start'>
-              <img src={data.companyLogo} alt="company-logo" />
+              <img src={card.companyLogo} alt="company-logo" />
               <button><i class="fa-regular fa-heart fa-lg"></i></button>
             </div>
-            <h2 className='text-xl'>{data.title}</h2>
+            <h2 className='text-xl'>{card.title}</h2>
           </div>
           {/* description */}
-          <div className='flex flex-col space-y-3'>
-            <div className='flex items-center space-x-2 text-sm'>
-              <span>{data.companyName}</span>
-              <div className='w-0.5 h-0.5 bg-black rounded-full'></div>
-              <span>{data.location}</span>
-            </div>
-            <div className='flex items-center space-x-3'>
-              <div className='flex -space-x-1'>
-                <div className='w-8 h-8 bg-neutral-500 ring-2 ring-white'></div>
-                <div className='w-8 h-8 bg-neutral-500 ring-2 ring-white'></div>
-                <div className='w-8 h-8 bg-neutral-500 ring-2 ring-white'></div>
+          <div className='flex flex-col space-y-6'>
+            <div className='flex flex-col space-y-3'>
+              <div className='flex items-center space-x-2 text-sm'>
+                <span>{card.companyName}</span>
+                <div className='w-0.5 h-0.5 bg-black rounded-full'></div>
+                <span>{card.location}</span>
               </div>
-              <p>Active Employees</p>
+              <div className='flex items-center space-x-3'>
+                <div className='flex -space-x-1'>
+                  <div className='w-8 h-8 bg-neutral-500 ring-2 ring-white'></div>
+                  <div className='w-8 h-8 bg-neutral-500 ring-2 ring-white'></div>
+                  <div className='w-8 h-8 bg-neutral-500 ring-2 ring-white'></div>
+                </div>
+                <p>Active Employees</p>
+              </div>
             </div>
+            <Button variant={"primary"}>Apply Direct</Button>
           </div>
         </a>
       )
@@ -170,27 +173,58 @@ function JobCard() {
 }
 
 const CompanyCardList = [{
-  companyLogo: '/img/breef.png',
-  title: 'Product Manager (Operations)',
-  companyName: 'Breef',
-  location: 'New York or Remote'
-}, {
-  companyLogo: '/img/faire.png',
-  title: 'Senior Site Reliability Engineer',
-  companyName: 'Faire',
-  location: 'Brazil'
-}, {
-  companyLogo: '/img/ghia.png',
-  title: 'Event Worker',
-  companyName: 'Ghia',
-  location: 'Los Angeles / New York City'
-}, {
-  companyLogo: '/img/mrBeast.png',
-  title: 'Talent Acquisition/Recruiting',
-  companyName: 'Mr. Beast',
-  location: 'Greenville NC'
-}
+    companyBg: '/img/companyBG1.png',
+    location: 'San Francisco, CA',
+    companyName: 'Webflow'
+  }, {
+    companyBg: '/img/companyBG2.png',
+    location: 'San Francisco, CA',
+    companyName: 'Patreon'
+  }, {
+    companyBg: '/img/companyBG3.png',
+    location: 'San Francisco, CA',
+    companyName: 'Faire'
+  }, {
+    companyBg: '/img/companyBG4.png',
+    location: 'New York, NY',
+    companyName: 'Breef'
+  }
 ];
+
+function CompanyCard() {
+  return (
+    CompanyCardList.map(function(card) {
+      return (
+        <a href='' className='relative flex flex-col justify-between shrink-0 snap-start bg-white w-[340px] border border-black rounded-lg'>
+          <img src={card.companyBg} className='w-full h-24 object-cover object-center'></img>
+          <div className='p-8 flex flex-col space-y-3'>
+            {/* card header */}
+            <h2 className='text-xl'>{card.companyName}</h2>
+            {/* description */}
+            <div className='flex flex-col space-y-6'>
+              <div className='flex flex-col space-y-3'>
+                <div className='flex items-center space-x-2 text-sm'>
+                  <span>Manufacturing</span>
+                  <div className='w-0.5 h-0.5 bg-black rounded-full'></div>
+                  <span>{card.location}</span>
+                </div>
+                <div className='flex items-center space-x-3'>
+                  <div className='flex -space-x-1'>
+                    <div className='w-8 h-8 bg-neutral-500 ring-2 ring-white'></div>
+                    <div className='w-8 h-8 bg-neutral-500 ring-2 ring-white'></div>
+                    <div className='w-8 h-8 bg-neutral-500 ring-2 ring-white'></div>
+                  </div>
+                  <p>Active Employees</p>
+                </div>
+              </div>
+              <Button variant={"primary"}>Browse Job</Button>
+            </div>
+          </div>
+        </a>
+      )
+    })
+  )
+}
 
 function Main() {
   return (
@@ -240,7 +274,7 @@ function Main() {
               </div>
               {/* card list */}
               <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
-
+                <CompanyCard/>
               </div>
             </div>
           </div>
