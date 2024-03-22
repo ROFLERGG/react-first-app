@@ -42,7 +42,7 @@ function Header() {
       </button>
     </header>
   )
-}
+};
 
 function Hero() {
   return (
@@ -78,7 +78,7 @@ function Hero() {
       </div>
     </div>
   )
-}
+};
 
 const firstSectionCardList = [{
     image: "/img/sectionCard-img1.png",
@@ -109,7 +109,7 @@ function FirstSectionCard() {
       )
     })
   );
-}
+};
 
 const JobCardList = [{
     companyLogo: '/img/breef.png',
@@ -170,7 +170,7 @@ function JobCard() {
       )
     })
   )
-}
+};
 
 const CompanyCardList = [{
     companyBg: '/img/companyBG1.png',
@@ -196,7 +196,7 @@ function CompanyCard() {
     CompanyCardList.map(function(card) {
       return (
         <a href='' className='relative flex flex-col justify-between shrink-0 snap-start bg-white w-[340px] border border-black rounded-lg'>
-          <img src={card.companyBg} className='w-full h-24 object-cover object-center'></img>
+          <img src={card.companyBg} className='w-full h-24 object-cover object-center rounded-t-lg'></img>
           <div className='p-8 flex flex-col space-y-3'>
             {/* card header */}
             <h2 className='text-xl'>{card.companyName}</h2>
@@ -226,6 +226,37 @@ function CompanyCard() {
   )
 }
 
+function Tag(props) {
+  return (
+    <a href='' className='bg-white px-6 py-3 border border-black rounded-lg text-2xl max-sm:text-xl hover:bg-neutral-950 hover:text-white duration-150 ease-in-out'>{props.children}</a>
+  )
+};
+
+function TagsHandler() {
+  return (
+    <div className='flex flex-col space-y-6'>
+      <h2 className='text-4xl font-roboto w-fit'>Find your culture</h2>
+      <div className='flex flex-wrap gap-3'>
+        <Tag>Adventurous</Tag>
+        <Tag>Autonomous</Tag>
+        <Tag>Bold</Tag>
+        <Tag>Collaborative</Tag>
+        <Tag>Curious</Tag>
+        <Tag>Design Driven</Tag>
+        <Tag>Ego-Free</Tag>
+        <Tag>Empathetic</Tag>
+        <Tag>Empowering</Tag>
+        <Tag>Entrepreneurial</Tag>
+        <Tag>Fast Paced</Tag>
+        <Tag>Focused</Tag>
+        <Tag>Forward Thinking</Tag>
+        <Tag>Inclusive</Tag>
+        <Tag>Purposeful</Tag>
+      </div>
+    </div>
+  )
+};
+
 function Main() {
   return (
     <main>
@@ -244,15 +275,14 @@ function Main() {
       </section>
       {/* second section */}
       <section className='bg-white py-[120px]'>
-        <div className='container'>
-          {/* card lists */}
+        <div className='container max-md:pr-0'>
           <div className='flex flex-col space-y-24'>
             {/* trending jobs */}
-            <div className='flex flex-col space-y-6 overflow-x-hidden max-md:overflow-x-visible'>
+            <div className='flex flex-col space-y-6 overflow-x-hidden'>
               {/* title */}
               <div className='flex justify-between items-end'>
-                <h2 className='text-4xl font-roboto w-fit'>Trending jobs</h2>
-                <a href='' className='flex items-center space-x-3 whitespace-nowrap'>
+                <h2 className='text-3xl font-roboto w-fit'>Trending jobs</h2>
+                <a href='' className='flex items-center space-x-3 whitespace-nowrap max-sm:mr-4'>
                   <span className='text-lg font-roboto'>View all</span>
                   <i class="fa-solid fa-arrow-right-long"></i>
                 </a>
@@ -263,11 +293,11 @@ function Main() {
               </div>
             </div>
             {/* top companies */}
-            <div className='flex flex-col space-y-6 overflow-x-hidden max-md:overflow-x-visible'>
+            <div className='flex flex-col space-y-6 overflow-x-hidden'>
               {/* title */}
               <div className='flex justify-between items-end'>
-                <h2 className='text-4xl font-roboto w-fit'>Top companies</h2>
-                <a href='' className='flex items-center space-x-3 whitespace-nowrap'>
+                <h2 className='text-3xl font-roboto w-fit'>Top companies</h2>
+                <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
                   <span className='text-lg font-roboto'>View all</span>
                   <i class="fa-solid fa-arrow-right-long"></i>
                 </a>
@@ -275,6 +305,41 @@ function Main() {
               {/* card list */}
               <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
                 <CompanyCard/>
+              </div>
+            </div>
+            {/* tags */}
+            <div className='flex flex-col space-y-6'>
+              <h2 className='text-3xl font-roboto w-fit'>Find your culture</h2>
+              <div className='flex flex-wrap gap-3'>
+                <Tag>Adventurous</Tag>
+                <Tag>Autonomous</Tag>
+                <Tag>Bold</Tag>
+                <Tag>Collaborative</Tag>
+                <Tag>Curious</Tag>
+                <Tag>Design Driven</Tag>
+                <Tag>Ego-Free</Tag>
+                <Tag>Empathetic</Tag>
+                <Tag>Empowering</Tag>
+                <Tag>Entrepreneurial</Tag>
+                <Tag>Fast Paced</Tag>
+                <Tag>Focused</Tag>
+                <Tag>Forward Thinking</Tag>
+                <Tag>Inclusive</Tag>
+                <Tag>Purposeful</Tag>
+              </div>
+            </div>
+            {/* browse collections */}
+            <div className='flex flex-col space-y-6 overflow-x-hidden'>
+              {/* title */}
+              <div className='flex justify-between items-end'>
+                <h2 className='text-3xl font-roboto w-fit'>Browse Collections</h2>
+                <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
+                  <span className='text-lg font-roboto'>View all</span>
+                  <i class="fa-solid fa-arrow-right-long"></i>
+                </a>
+              </div>
+              {/* card list */}
+              <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
               </div>
             </div>
           </div>
