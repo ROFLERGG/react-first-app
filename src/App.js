@@ -232,30 +232,50 @@ function Tag(props) {
   )
 };
 
-function TagsHandler() {
-  return (
-    <div className='flex flex-col space-y-6'>
-      <h2 className='text-4xl font-roboto w-fit'>Find your culture</h2>
-      <div className='flex flex-wrap gap-3'>
-        <Tag>Adventurous</Tag>
-        <Tag>Autonomous</Tag>
-        <Tag>Bold</Tag>
-        <Tag>Collaborative</Tag>
-        <Tag>Curious</Tag>
-        <Tag>Design Driven</Tag>
-        <Tag>Ego-Free</Tag>
-        <Tag>Empathetic</Tag>
-        <Tag>Empowering</Tag>
-        <Tag>Entrepreneurial</Tag>
-        <Tag>Fast Paced</Tag>
-        <Tag>Focused</Tag>
-        <Tag>Forward Thinking</Tag>
-        <Tag>Inclusive</Tag>
-        <Tag>Purposeful</Tag>
-      </div>
-    </div>
-  )
-};
+const collections = [{
+    image: "/img/collection1.png",
+    title: 'Women Led',
+    companies: 5,
+    jobs: 1,
+  }, {
+    image: "/img/collection2.png",
+    title: 'Wellness',
+    companies: 3,
+    jobs: 1,
+  }, {
+    image: "/img/collection3.png",
+    title: 'Web 3',
+    companies: 2,
+    jobs: 5,
+  }, {
+    image: "/img/collection4.png",
+    title: 'Music Tech',
+    companies: 1,
+    jobs: 1,
+  }, {
+    image: "/img/collection5.png",
+    title: 'Marketplaces',
+    companies: 2,
+    jobs: 17,
+  }, {
+    image: "/img/collection6.png",
+    title: 'Giving Back',
+    companies: 1,
+    jobs: 1,
+  }
+];
+
+function CollectionCard() {
+  collections.map(function(card) {
+    return (
+      <a href='' className='flex flex-col rounded-lg bg-white'>
+        <div className='rounded-t-lg'>
+          <img src={card.} alt="" />
+        </div>
+      </a>
+    )
+  })
+}
 
 function Main() {
   return (
@@ -339,7 +359,8 @@ function Main() {
                 </a>
               </div>
               {/* card list */}
-              <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
+              <div className='flex flex-wrap gap-6'>
+                <div></div>
               </div>
             </div>
           </div>
