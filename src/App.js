@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.css'
 
 function Button({ variant, children }) {
@@ -266,15 +266,77 @@ const collections = [{
 ];
 
 function CollectionCard() {
-  collections.map(function(card) {
-    return (
-      <a href='' className='flex flex-col rounded-lg bg-white'>
-        <div className='rounded-t-lg'>
-          <img src={card.} alt="" />
-        </div>
-      </a>
-    )
-  })
+  
+  const [a, setA] = useState(collections);
+  
+  useEffect(() => {
+    window.addEventListener("resize", (e) => {
+      if (window.innerWidth <= 640) {
+        setA(collections.slice(0, 2))
+      } else  {
+        setA(collections)
+      }
+    })
+  }, [])
+  
+  return (
+    a.map(function(card) {
+      return (
+        <a href='#' className='flex flex-col rounded-lg border border-neutral-950 bg-white'>
+          <img src={card.image} alt="collection" className='w-full h-48 object-cover object-center rounded-t-lg'/>
+          <div className='p-8 flex flex-col space-y-3'>
+            <h2 className='text-2xl'>{card.title}</h2>
+            <div className='flex items-center space-x-2'>
+              <div className='flex items-center space-x-1'>
+                <span>{card.companies}</span>
+                <span className='leading-none'>Companies</span>
+              </div>
+              <div class="w-0.5 h-0.5 bg-black rounded-full"></div>
+              <div className='flex items-center space-x-1'>
+                <span>{card.jobs}</span>
+                <span>Jobs</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      )
+    })
+  )
+}
+
+function Media() {
+  
+}
+
+function Section() {
+  const [tab, setTab] = useState(1);
+
+  return (
+    <div className='flex justify-between gap-12'>
+      <div class="flex flex-1 flex-col gap-3">
+        {/* <button onClick={() => setTab(1)} className='px-4 py-8 border border-neutral-950 rounded-lg focus:shadow-btn duration-150 transition-all ease-in-out'>Build your new profile</button>
+        <button onClick={() => setTab(2)} className='px-4 py-8 border border-neutral-950 rounded-lg focus:shadow-btn duration-150 transition-all ease-in-out'>Discover jobs you love</button>
+        <button onClick={() => setTab(3)} className='px-4 py-8 border border-neutral-950 rounded-lg focus:shadow-btn duration-150 transition-all ease-in-out'>Apply direct to teams</button>
+        <button onClick={() => setTab(4)} className='px-4 py-8 border border-neutral-950 rounded-lg focus:shadow-btn duration-150 transition-all ease-in-out'>Get quick feedback</button>
+        <button onClick={() => setTab(5)} className='px-4 py-8 border border-neutral-950 rounded-lg focus:shadow-btn duration-150 transition-all ease-in-out'>Land interviews quicker</button> */}
+        <input onClick={() => setTab(1)} type="radio" name="tab" id='tab1' className='hidden' checked/>
+        <label htmlFor='tab1' className='px-8 py-10 border border-neutral-950 rounded-2xl checked:shadow-btn duration-150 transition-all ease-in-out text-2xl'>Build your new profile</label>
+        <input onClick={() => setTab(2)} type="radio" name="tab" id='tab2' className='hidden' />
+        <label htmlFor='tab2' className='px-8 py-10 border border-neutral-950 rounded-2xl checked:shadow-btn duration-150 transition-all ease-in-out text-2xl'>Discover jobs you love</label>
+        <input onClick={() => setTab(3)} type="radio" name="tab" id='tab3' className='hidden' />
+        <label htmlFor='tab3' className='px-8 py-10 border border-neutral-950 rounded-2xl checked:shadow-btn duration-150 transition-all ease-in-out text-2xl'>Apply direct to teams</label>
+        <input onClick={() => setTab(4)} type="radio" name="tab" id='tab4' className='hidden' />
+        <label htmlFor='tab4' className='px-8 py-10 border border-neutral-950 rounded-2xl checked:shadow-btn duration-150 transition-all ease-in-out text-2xl'>Get quick feedback</label>
+        <input onClick={() => setTab(5)} type="radio" name="tab" id='tab5' className='hidden' />
+        <label htmlFor='tab5' className='px-8 py-10 border border-neutral-950 rounded-2xl checked:shadow-btn duration-150 transition-all ease-in-out text-2xl'>Land interviews quicker</label>
+      </div>
+      <div class="flex-1">
+        <div className={tab === 1 ? "block w-full h-full bg-neutral-500" : "hidden"}></div>
+        <div className={tab === 2 ? "block w-full h-full bg-neutral-600" : "hidden"}></div>
+        <div className={tab === 3 ? "block w-full h-full bg-neutral-700" : "hidden"}></div>
+      </div>
+    </div>
+  )
 }
 
 function Main() {
@@ -298,10 +360,10 @@ function Main() {
         <div className='container max-md:pr-0'>
           <div className='flex flex-col space-y-24'>
             {/* trending jobs */}
-            <div className='flex flex-col space-y-6 overflow-x-hidden'>
+            <div className='flex flex-col space-y-12 overflow-x-hidden'>
               {/* title */}
               <div className='flex justify-between items-end'>
-                <h2 className='text-3xl font-roboto w-fit'>Trending jobs</h2>
+                <h2 className='text-5xl font-roboto w-fit'>Trending jobs</h2>
                 <a href='' className='flex items-center space-x-3 whitespace-nowrap max-sm:mr-4'>
                   <span className='text-lg font-roboto'>View all</span>
                   <i class="fa-solid fa-arrow-right-long"></i>
@@ -313,10 +375,10 @@ function Main() {
               </div>
             </div>
             {/* top companies */}
-            <div className='flex flex-col space-y-6 overflow-x-hidden'>
+            <div className='flex flex-col space-y-12 overflow-x-hidden'>
               {/* title */}
               <div className='flex justify-between items-end'>
-                <h2 className='text-3xl font-roboto w-fit'>Top companies</h2>
+                <h2 className='text-5xl font-roboto w-fit'>Top companies</h2>
                 <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
                   <span className='text-lg font-roboto'>View all</span>
                   <i class="fa-solid fa-arrow-right-long"></i>
@@ -328,8 +390,8 @@ function Main() {
               </div>
             </div>
             {/* tags */}
-            <div className='flex flex-col space-y-6'>
-              <h2 className='text-3xl font-roboto w-fit'>Find your culture</h2>
+            <div className='flex flex-col space-y-12'>
+              <h2 className='text-5xl font-roboto w-fit'>Find your culture</h2>
               <div className='flex flex-wrap gap-3'>
                 <Tag>Adventurous</Tag>
                 <Tag>Autonomous</Tag>
@@ -349,19 +411,24 @@ function Main() {
               </div>
             </div>
             {/* browse collections */}
-            <div className='flex flex-col space-y-6 overflow-x-hidden'>
+            <div className='flex flex-col space-y-12'>
               {/* title */}
               <div className='flex justify-between items-end'>
-                <h2 className='text-3xl font-roboto w-fit'>Browse Collections</h2>
+                <h2 className='text-5xl font-roboto w-fit'>Browse Collections</h2>
                 <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
                   <span className='text-lg font-roboto'>View all</span>
                   <i class="fa-solid fa-arrow-right-long"></i>
                 </a>
               </div>
               {/* card list */}
-              <div className='flex flex-wrap gap-6'>
-                <div></div>
+              <div className='grid gap-6 grid-cols-4 flex-wrap max-2xl:grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1'>
+                <CollectionCard/>
               </div>
+            </div>
+            {/* media */}
+            <div className='flex flex-col space-y-12'>
+              <h2 className='text-5xl font-roboto w-fit mx-auto'>It’s simple to get started</h2>
+              <Section/>
             </div>
           </div>
         </div>
