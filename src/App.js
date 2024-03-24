@@ -308,62 +308,23 @@ function Media() {
   
 }
 
+const tabData = ["Build your new profile", "Discover jobs you love", "Apply direct to teams", "Get quick feedback", "Land interviews quicker"]
+
 function Section() {
   const [tab, setTab] = useState(1);
-
   return (
     <div className='flex justify-between gap-12'>
       <div class="flex flex-1 flex-col gap-3">
-        {/* <button onClick={() => setTab(1)} className='px-4 py-8 border border-neutral-950 rounded-lg focus:shadow-btn duration-150 transition-all ease-in-out'>Build your new profile</button>
-        <button onClick={() => setTab(2)} className='px-4 py-8 border border-neutral-950 rounded-lg focus:shadow-btn duration-150 transition-all ease-in-out'>Discover jobs you love</button>
-        <button onClick={() => setTab(3)} className='px-4 py-8 border border-neutral-950 rounded-lg focus:shadow-btn duration-150 transition-all ease-in-out'>Apply direct to teams</button>
-        <button onClick={() => setTab(4)} className='px-4 py-8 border border-neutral-950 rounded-lg focus:shadow-btn duration-150 transition-all ease-in-out'>Get quick feedback</button>
-        <button onClick={() => setTab(5)} className='px-4 py-8 border border-neutral-950 rounded-lg focus:shadow-btn duration-150 transition-all ease-in-out'>Land interviews quicker</button> */}
-        <div className='flex'>
-          <input onClick={() =>  setTab(1)} type="radio" name="tabs" id='tab1' className='peer hidden' checked/>
-          <label htmlFor='tab1' className='px-8 py-10 w-full border border-neutral-950 rounded-2xl peer-checked:shadow-btn duration-150 transition-all ease-in-out cursor-pointer' >
-            <div className='flex items-center space-x-6 text-2xl'>
-              <div className='flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl'>1</div>
-              <span>Build your new profile</span>
-            </div>
-          </label>
-        </div>
-        <div className='flex'>
-          <input onClick={() => setTab(2)} type="radio" name="tabs" id='tab2' className='peer hidden' />
-          <label htmlFor='tab2' className='px-8 py-10 w-full border border-neutral-950 rounded-2xl peer-checked:shadow-btn duration-150 transition-all ease-in-out cursor-pointer'>
-            <div className='flex items-center space-x-6 text-2xl'>
-              <div className='flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl'>1</div>
-              <span>Discover jobs you love</span>
-            </div>
-          </label>
-        </div>
-        <div className='flex'>
-          <input onClick={() => setTab(3)} type="radio" name="tabs" id='tab3' className='peer hidden' />
-          <label htmlFor='tab3' className='px-8 py-10 w-full border border-neutral-950 rounded-2xl peer-checked:shadow-btn duration-150 transition-all ease-in-out cursor-pointer'>
-            <div className='flex items-center space-x-6 text-2xl'>
-              <div className='flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl'>1</div>
-              <span>Apply direct to teams</span>
-            </div>
-          </label>
-        </div>
-        <div className='flex'>
-          <input onClick={() => setTab(4)} type="radio" name="tabs" id='tab4' className='peer hidden' />
-          <label htmlFor='tab4' className='px-8 py-10 w-full border border-neutral-950 rounded-2xl peer-checked:shadow-btn duration-150 transition-all ease-in-out cursor-pointer'>
-            <div className='flex items-center space-x-6 text-2xl'>
-              <div className='flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl'>1</div>
-              <span>Get quick feedback</span>
-            </div>
-          </label>
-        </div>
-        <div className='flex'>
-          <input onClick={() => setTab(5)} type="radio" name="tabs" id='tab5' className='peer hidden' />
-          <label htmlFor='tab5' className='px-8 py-10 w-full border border-neutral-950 rounded-2xl peer-checked:shadow-btn duration-150 transition-all ease-in-out cursor-pointer'>
-            <div className='flex items-center space-x-6 text-2xl'>
-              <div className='flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl'>1</div>
-              <span>Land interviews quicker</span>
-            </div>
-          </label>
-        </div>
+        {tabData.map((title, index) => {
+          return (
+            <button onClick={() =>  setTab(index + 1)} className={`px-8 py-10 w-full border border-neutral-950 rounded-2xl duration-150 transition-all ease-in-out cursor-pointer ${tab === index + 1 ? "shadow-btn" : ""}`} >
+              <div className='flex items-center space-x-6 text-2xl'>
+                <div className='flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl'>{index + 1}</div>
+                <span>{title}</span>
+              </div>
+            </button>
+          )
+        })}
       </div>
       <div class="flex-[2]">
         <div className={tab === 1 ? "block w-full h-full bg-neutral-400 rounded-2xl" : "hidden"}></div>
