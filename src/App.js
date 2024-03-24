@@ -310,7 +310,7 @@ function Media() {
 
 const tabData = ["Build your new profile", "Discover jobs you love", "Apply direct to teams", "Get quick feedback", "Land interviews quicker"]
 
-function Section() {
+function MediaTabs() {
   const [tab, setTab] = useState(1);
   return (
     <div className='flex justify-between gap-12'>
@@ -334,6 +334,42 @@ function Section() {
         <div className={tab === 5 ? "block w-full h-full bg-neutral-800 rounded-2xl" : "hidden"}></div>
       </div>
     </div>
+  )
+}
+
+const faqData = [
+  "Why Parallel over Linkedin Jobs, or Zip Recruiter?",
+  "What types of jobs are on Parallel?",
+  "What does apply direct or get referred mean?",
+  "Is Parallel free?",
+  "Do I submit my resume or profile?",
+  "Will more companies & jobs be added?"
+];
+
+function FaqBtn() {
+  return (
+    faqData.map((title) => {
+      return(
+        <button className='px-8 py-10 bg-neutral-500 flex justify-between space-x-3 rounded-lg'>
+          <span className='text-white text-xl'>{title}</span>
+        </button>
+      )
+    })
+  )
+}
+
+function FAQ() {
+  return (
+    <section className='bg-neutral-950 py-[120px]'>
+        <div className='container'>
+          <div className='flex flex-col space-y-12'>
+            <h2 className='text-5xl text-white font-roboto w-fit mx-auto'>FAQ</h2>
+            <div className='flex flex-col space-y-6'>
+              <FaqBtn/>
+            </div>
+          </div>
+        </div>
+    </section>
   )
 }
 
@@ -426,11 +462,13 @@ function Main() {
             {/* media */}
             <div className='flex flex-col space-y-12'>
               <h2 className='text-5xl font-roboto w-fit mx-auto'>It’s simple to get started</h2>
-              <Section/>
+              <MediaTabs/>
             </div>
           </div>
         </div>
       </section>
+      {/* third section */}
+      <FAQ/>
     </main>
   )
 }
