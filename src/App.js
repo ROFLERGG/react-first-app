@@ -319,21 +319,58 @@ function Section() {
         <button onClick={() => setTab(3)} className='px-4 py-8 border border-neutral-950 rounded-lg focus:shadow-btn duration-150 transition-all ease-in-out'>Apply direct to teams</button>
         <button onClick={() => setTab(4)} className='px-4 py-8 border border-neutral-950 rounded-lg focus:shadow-btn duration-150 transition-all ease-in-out'>Get quick feedback</button>
         <button onClick={() => setTab(5)} className='px-4 py-8 border border-neutral-950 rounded-lg focus:shadow-btn duration-150 transition-all ease-in-out'>Land interviews quicker</button> */}
-        <input onClick={() => setTab(1)} type="radio" name="tab" id='tab1' className='hidden' checked/>
-        <label htmlFor='tab1' className='px-8 py-10 border border-neutral-950 rounded-2xl checked:shadow-btn duration-150 transition-all ease-in-out text-2xl'>Build your new profile</label>
-        <input onClick={() => setTab(2)} type="radio" name="tab" id='tab2' className='hidden' />
-        <label htmlFor='tab2' className='px-8 py-10 border border-neutral-950 rounded-2xl checked:shadow-btn duration-150 transition-all ease-in-out text-2xl'>Discover jobs you love</label>
-        <input onClick={() => setTab(3)} type="radio" name="tab" id='tab3' className='hidden' />
-        <label htmlFor='tab3' className='px-8 py-10 border border-neutral-950 rounded-2xl checked:shadow-btn duration-150 transition-all ease-in-out text-2xl'>Apply direct to teams</label>
-        <input onClick={() => setTab(4)} type="radio" name="tab" id='tab4' className='hidden' />
-        <label htmlFor='tab4' className='px-8 py-10 border border-neutral-950 rounded-2xl checked:shadow-btn duration-150 transition-all ease-in-out text-2xl'>Get quick feedback</label>
-        <input onClick={() => setTab(5)} type="radio" name="tab" id='tab5' className='hidden' />
-        <label htmlFor='tab5' className='px-8 py-10 border border-neutral-950 rounded-2xl checked:shadow-btn duration-150 transition-all ease-in-out text-2xl'>Land interviews quicker</label>
+        <div className='flex'>
+          <input onClick={() =>  setTab(1)} type="radio" name="tabs" id='tab1' className='peer hidden' checked/>
+          <label htmlFor='tab1' className='px-8 py-10 w-full border border-neutral-950 rounded-2xl peer-checked:shadow-btn duration-150 transition-all ease-in-out cursor-pointer' >
+            <div className='flex items-center space-x-6 text-2xl'>
+              <div className='flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl'>1</div>
+              <span>Build your new profile</span>
+            </div>
+          </label>
+        </div>
+        <div className='flex'>
+          <input onClick={() => setTab(2)} type="radio" name="tabs" id='tab2' className='peer hidden' />
+          <label htmlFor='tab2' className='px-8 py-10 w-full border border-neutral-950 rounded-2xl peer-checked:shadow-btn duration-150 transition-all ease-in-out cursor-pointer'>
+            <div className='flex items-center space-x-6 text-2xl'>
+              <div className='flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl'>1</div>
+              <span>Discover jobs you love</span>
+            </div>
+          </label>
+        </div>
+        <div className='flex'>
+          <input onClick={() => setTab(3)} type="radio" name="tabs" id='tab3' className='peer hidden' />
+          <label htmlFor='tab3' className='px-8 py-10 w-full border border-neutral-950 rounded-2xl peer-checked:shadow-btn duration-150 transition-all ease-in-out cursor-pointer'>
+            <div className='flex items-center space-x-6 text-2xl'>
+              <div className='flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl'>1</div>
+              <span>Apply direct to teams</span>
+            </div>
+          </label>
+        </div>
+        <div className='flex'>
+          <input onClick={() => setTab(4)} type="radio" name="tabs" id='tab4' className='peer hidden' />
+          <label htmlFor='tab4' className='px-8 py-10 w-full border border-neutral-950 rounded-2xl peer-checked:shadow-btn duration-150 transition-all ease-in-out cursor-pointer'>
+            <div className='flex items-center space-x-6 text-2xl'>
+              <div className='flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl'>1</div>
+              <span>Get quick feedback</span>
+            </div>
+          </label>
+        </div>
+        <div className='flex'>
+          <input onClick={() => setTab(5)} type="radio" name="tabs" id='tab5' className='peer hidden' />
+          <label htmlFor='tab5' className='px-8 py-10 w-full border border-neutral-950 rounded-2xl peer-checked:shadow-btn duration-150 transition-all ease-in-out cursor-pointer'>
+            <div className='flex items-center space-x-6 text-2xl'>
+              <div className='flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl'>1</div>
+              <span>Land interviews quicker</span>
+            </div>
+          </label>
+        </div>
       </div>
-      <div class="flex-1">
-        <div className={tab === 1 ? "block w-full h-full bg-neutral-500" : "hidden"}></div>
-        <div className={tab === 2 ? "block w-full h-full bg-neutral-600" : "hidden"}></div>
-        <div className={tab === 3 ? "block w-full h-full bg-neutral-700" : "hidden"}></div>
+      <div class="flex-[2]">
+        <div className={tab === 1 ? "block w-full h-full bg-neutral-400 rounded-2xl" : "hidden"}></div>
+        <div className={tab === 2 ? "block w-full h-full bg-neutral-500 rounded-2xl" : "hidden"}></div>
+        <div className={tab === 3 ? "block w-full h-full bg-neutral-600 rounded-2xl" : "hidden"}></div>
+        <div className={tab === 4 ? "block w-full h-full bg-neutral-700 rounded-2xl" : "hidden"}></div>
+        <div className={tab === 5 ? "block w-full h-full bg-neutral-800 rounded-2xl" : "hidden"}></div>
       </div>
     </div>
   )
