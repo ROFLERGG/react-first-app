@@ -338,21 +338,32 @@ function MediaTabs() {
 }
 
 const faqData = [
-  "Why Parallel over Linkedin Jobs, or Zip Recruiter?",
-  "What types of jobs are on Parallel?",
-  "What does apply direct or get referred mean?",
-  "Is Parallel free?",
-  "Do I submit my resume or profile?",
-  "Will more companies & jobs be added?"
+  {title: "Why Parallel over Linkedin Jobs, or Zip Recruiter?", description: "123"},
+  {title: "What types of jobs are on Parallel?", description: "456"},
+  {title: "What does apply direct or get referred mean?", description: "789"},
+  {title: "Is Parallel free?", description: "101112"},
+  {title: "Do I submit my resume or profile?", description: "131415"},
+  {title: "Will more companies & jobs be added?", description: "161718"},
 ];
+
+const AccordionItem = ({title, description}) => {
+  const [isActive, setActive] = useState(false);
+  return (
+    <button onClick={() => {setActive(!isActive)}} className="px-8 py-10 bg-neutral-800 rounded-lg text-white space-y-6">
+      <div className="flex justify-between items-center space-x-6">
+        <span className='text-xl text-start'>{title}</span>
+        <i class="fa-solid fa-chevron-down fa-lg"></i>
+      </div>
+      {isActive && <p className="hiddentext-lg text-start">{description}</p>}
+    </button>
+  )
+}
 
 function FaqBtn() {
   return (
-    faqData.map((title) => {
-      return(
-        <button className='px-8 py-10 bg-neutral-500 flex justify-between space-x-3 rounded-lg'>
-          <span className='text-white text-xl'>{title}</span>
-        </button>
+    faqData.map(({title, description}) => {
+      return (
+        <AccordionItem title={title} description={description}/>
       )
     })
   )
