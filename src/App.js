@@ -1,26 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import './index.css'
+import { cva } from 'class-variance-authority';
 
-function Button({ variant, children, textColor = 'green', bg = "primary" }) {
-  if (variant === "primary") {
-    return (
-      <button className='px-8 py-3 bg-white border border-neutral-950 rounded-lg text-neutral-950 font-roboto shadow-btn'>{children}</button>
-    );
+// function Button({ variant, children }) {
+//   if (variant === "primary") {
+//     return (
+//       <button className='px-8 py-3 bg-white border border-neutral-950 rounded-lg text-neutral-950 font-roboto shadow-btn'>{children}</button>
+//     );
+//   }
+//   if (variant === "secondary") {
+//     return (
+//       <button className='px-8 py-3 bg-yellow-400 border border-neutral-950 rounded-lg text-neutral-950 font-roboto shadow-btn text-lg'>{children}</button>
+//     );
+//   };
+//   if (variant === "skeleton") {
+//     return (
+//       <button className='relative px-8 py-3 border border-neutral-950 rounded-lg text-neutral-950 font-roboto text-lg'>
+//         {children}
+//         <div className='absolute top-[5px] left-[5px] w-full h-full border border-neutral-950 rounded-lg'></div>
+//       </button>
+//     );
+//   };
+// };
+
+const buttonVariants = cva(
+  ["px-8 py-3 border border-neutral-950 rounded-lg text-neutral-950 font-roboto"],
+  {
+    variants: {
+      variant: {
+        primary: "bg-white",
+        secondary: "bg-yellow-400 text-lg",
+        skeleton: "relative text-lg after:absolute after:top-[5px] after:left-[5px] after:w-full after:h-full"
+      },
+      color: {
+        yellow: "bg-yellow-400",
+        white: "bg-white",
+        transparent: "bg-transparent"
+      },
+    },
+    defaultVariants: {
+      variant: "primary",
+      color: "white"
+    },
   }
-  if (variant === "secondary") {
-    return (
-      <button className='px-8 py-3 bg-yellow-400 border border-neutral-950 rounded-lg text-neutral-950 font-roboto shadow-btn text-lg'>{children}</button>
-    );
-  };
-  if (variant === "skeleton") {
-    return (
-      <button className='relative px-8 py-3 border border-neutral-950 rounded-lg text-neutral-950 font-roboto text-lg'>
-        {children}
-        <div className='absolute top-[5px] left-[5px] w-full h-full border border-neutral-950 rounded-lg'></div>
-      </button>
-    );
-  };
-};
+)
 
 function Header() {
   return (
@@ -33,7 +56,7 @@ function Header() {
         </div>
         <div className='flex flex-1 justify-end items-center space-x-6'>
           <a href="" className='py-3 px-3 leading-none'>Sign In</a>
-          <Button variant={'primary'}>Sign up Free</Button>
+          <button className={buttonVariants({...props})}>Sign up Free</button>
         </div>
       </div>
       <button className='p-4 hidden max-lg:block'>
