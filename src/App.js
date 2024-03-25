@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './index.css'
 
-function Button({ variant, children }) {
+function Button({ variant, children, textColor = 'green', bg = "primary" }) {
   if (variant === "primary") {
     return (
       <button className='px-8 py-3 bg-white border border-neutral-950 rounded-lg text-neutral-950 font-roboto shadow-btn'>{children}</button>
@@ -248,7 +248,7 @@ function CompanyCard() {
 
 function Jobs() {
   return (
-    <div>
+    <div className='pt-[120px] pb-[60px]'>
       <div className='container max-md:pr-0'>
         <div className='flex flex-col space-y-12 overflow-x-hidden'>
           {/* title */}
@@ -271,7 +271,7 @@ function Jobs() {
 
 function Companies() {
   return (
-    <div>
+    <div className='py-[60px]'>
       <div className='container max-md:pr-0'>
         <div className='flex flex-col space-y-12 overflow-x-hidden'>
           {/* title */}
@@ -300,7 +300,7 @@ function Tag(props) {
 
 function TagsHandler() {
   return (
-    <div>
+    <div className='py-[60px]'>
       <div className='container'>
         <div className='flex flex-col space-y-12'>
           <h2 className='text-5xl font-roboto w-fit'>Find your culture</h2>
@@ -401,7 +401,7 @@ function CollectionCard() {
 
 function CollectionHandler() {
   return (
-    <div>
+    <div className='py-[60px]'>
       <div className='container'>
         <div className='flex flex-col space-y-12'>
           {/* title */}
@@ -434,7 +434,7 @@ function MediaTabs() {
             <button onClick={() => setTab(index + 1)} className={`px-8 py-10 w-full border border-neutral-950 rounded-2xl duration-150 transition-all ease-in-out cursor-pointer ${tab === index + 1 ? "shadow-btn" : ""}`} >
               <div className='flex items-center space-x-6 text-2xl'>
                 <div className='flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl'>{index + 1}</div>
-                <span>{title}</span>
+                <span className='text-start'>{title}</span>
               </div>
             </button>
           )
@@ -453,7 +453,7 @@ function MediaTabs() {
 
 function MediaHandler() {
   return (
-    <div>
+    <div className='pb-[120px] pt-[60px]'>
       <div className='container'>
         <div className='flex flex-col space-y-12'>
           <h2 className='text-5xl font-roboto w-fit mx-auto'>It’s simple to get started</h2>
@@ -466,8 +466,8 @@ function MediaHandler() {
 
 function SecondSection() {
   return (
-    <section className='bg-white py-[120px]'>
-      <div className='flex flex-col space-y-24'>
+    <section className='bg-white'>
+      <div className='flex flex-col'>
         {/* trending jobs */}
         <Jobs />
         {/* top companies */}
@@ -532,7 +532,7 @@ function FAQ() {
 
 function FourthSection() {
   return (
-    <section className='py-[180px] bg-footer bg-cover bg-center max-md:py-[120px]'>
+    <section className='py-[180px] bg-footer bg-cover bg-bottom bg-no-repeat max-md:py-[120px]'>
       <div className='container'>
         <div className='flex flex-col space-y-6'>
           <h2 className='font-roboto text-7xl max-lg:text-6xl mx-auto max-md:mx-0'>Your one stop job shop.</h2>
@@ -547,13 +547,46 @@ function FourthSection() {
   )
 }
 
+function Footer() {
+  return (
+    <footer className='bg-neutral-950 py-[60px]'>
+      <div className='px-8'>
+        <div className='flex flex-col space-y-12'>
+          {/* top */}
+          <div className='flex justify-between'>
+            <div className='flex flex-col space-y-6'>
+              <h2 className='text-lg text-white font-roboto'>Hire Different ™</h2>
+              <div className='flex flex-col space-y-6'>
+                <form action="" method="post" className='flex items-center space-x-3'>
+                  <input type="email" name="email" className='px-3 py-3 w-[240px] text-white bg-neutral-700 outline-none rounded'/>
+                  <button type="submit">Join us free</button>
+                </form>
+              </div>
+            </div>
+
+            <div className='flex space-x-6'>
+              <div className='flex flex-col space-y-3'></div>
+              <div className='flex flex-col space-y-3'></div>
+              <div className='flex flex-col space-y-3'></div>
+            </div>
+          </div>
+          {/* main */}
+          <div></div>
+          {/* bottom */}
+          <div></div>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
 function Main() {
   return (
     <main>
-      <FirstSection />
-      <SecondSection />
-      <FAQ />
-      <FourthSection />
+      <FirstSection/>
+      <SecondSection/>
+      <FAQ/>
+      <FourthSection/>
     </main>
   )
 }
@@ -564,6 +597,7 @@ function App() {
     <>
       <Hero />
       <Main />
+      <Footer/>
     </>
   );
 }
