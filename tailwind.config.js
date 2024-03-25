@@ -21,7 +21,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero': "url('./public/img/hero.png)",
-        'footer': "url('./public/footer-pattern.png')",
+        'footer': "url('/public/img/footer-pattern.png')",
       },
       fontSize: {
         '10xl': '160px',

@@ -9,12 +9,12 @@ function Button({ variant, children }) {
   }
   if (variant === "secondary") {
     return (
-      <button className='px-8 py-3 bg-yellow-400 border border-black rounded-lg text-black font-roboto'>{children}</button>
+      <button className='px-8 py-3 bg-yellow-400 border border-black rounded-lg text-black font-roboto text-lg'>{children}</button>
     );
   };
   if (variant === "skeleton") {
     return (
-      <button className='px-8 py-3 border border-black rounded-lg text-white font-roboto'>{children}</button>
+      <button className='px-8 py-3 border border-black rounded-lg text-neutral-950 font-roboto text-lg'>{children}</button>
     );
   };
 };
@@ -110,6 +110,23 @@ function FirstSectionCard() {
     })
   );
 };
+
+function FirstSection() {
+  return (
+    <section className='bg-neutral-950 py-[120px]'>
+        <div className='container'>
+          <div className='flex flex-col space-y-12'>
+            <h2 className='text-6xl text-white font-roboto max-w-[460px]'>Your new path
+            to hired.
+            </h2>
+            <div className='flex gap-24 flex-wrap max-md:gap-12'>
+              <FirstSectionCard/>
+            </div>
+          </div>
+        </div>
+    </section>
+  )
+}
 
 const JobCardList = [{
     companyLogo: '/img/breef.png',
@@ -226,11 +243,74 @@ function CompanyCard() {
   )
 }
 
+function Jobs() {
+  return (
+    <div className='flex flex-col space-y-12 overflow-x-hidden'>
+      {/* title */}
+      <div className='flex justify-between items-end'>
+        <h2 className='text-5xl font-roboto w-fit'>Trending jobs</h2>
+        <a href='' className='flex items-center space-x-3 whitespace-nowrap max-sm:mr-4'>
+          <span className='text-lg font-roboto'>View all</span>
+          <i class="fa-solid fa-arrow-right-long"></i>
+        </a>
+      </div>
+      {/* card list */}
+      <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
+        <JobCard/>
+      </div>
+    </div>
+  )
+}
+
+function Companies() {
+  return (
+    <div className='flex flex-col space-y-12 overflow-x-hidden'>
+      {/* title */}
+      <div className='flex justify-between items-end'>
+        <h2 className='text-5xl font-roboto w-fit'>Top companies</h2>
+        <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
+          <span className='text-lg font-roboto'>View all</span>
+          <i class="fa-solid fa-arrow-right-long"></i>
+        </a>
+      </div>
+      {/* card list */}
+      <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
+        <CompanyCard/>
+      </div>
+    </div>
+  )
+}
+
 function Tag(props) {
   return (
     <a href='' className='bg-white px-6 py-3 border border-black rounded-lg text-2xl max-sm:text-xl hover:bg-neutral-950 hover:text-white duration-150 ease-in-out'>{props.children}</a>
   )
 };
+
+function TagsHandler() {
+  return (
+    <div className='flex flex-col space-y-12'>
+      <h2 className='text-5xl font-roboto w-fit'>Find your culture</h2>
+      <div className='flex flex-wrap gap-3'>
+        <Tag>Adventurous</Tag>
+        <Tag>Autonomous</Tag>
+        <Tag>Bold</Tag>
+        <Tag>Collaborative</Tag>
+        <Tag>Curious</Tag>
+        <Tag>Design Driven</Tag>
+        <Tag>Ego-Free</Tag>
+        <Tag>Empathetic</Tag>
+        <Tag>Empowering</Tag>
+        <Tag>Entrepreneurial</Tag>
+        <Tag>Fast Paced</Tag>
+        <Tag>Focused</Tag>
+        <Tag>Forward Thinking</Tag>
+        <Tag>Inclusive</Tag>
+        <Tag>Purposeful</Tag>
+      </div>
+    </div>
+  )
+}
 
 const collections = [{
     image: "/img/collection1.png",
@@ -304,8 +384,23 @@ function CollectionCard() {
   )
 }
 
-function Media() {
-  
+function CollectionHandler() {
+  return (
+    <div className='flex flex-col space-y-12'>
+      {/* title */}
+      <div className='flex justify-between items-end'>
+        <h2 className='text-5xl font-roboto w-fit'>Browse Collections</h2>
+        <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
+          <span className='text-lg font-roboto'>View all</span>
+          <i class="fa-solid fa-arrow-right-long"></i>
+        </a>
+      </div>
+      {/* card list */}
+      <div className='grid gap-6 grid-cols-4 flex-wrap max-2xl:grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1'>
+        <CollectionCard/>
+      </div>
+    </div>
+  )
 }
 
 const tabData = ["Build your new profile", "Discover jobs you love", "Apply direct to teams", "Get quick feedback", "Land interviews quicker"]
@@ -334,6 +429,36 @@ function MediaTabs() {
         <div className={tab === 5 ? "block w-full h-full bg-neutral-800 rounded-2xl" : "hidden"}></div>
       </div>
     </div>
+  )
+}
+
+function MediaHandler() {
+  return (
+    <div className='flex flex-col space-y-12'>
+      <h2 className='text-5xl font-roboto w-fit mx-auto'>It’s simple to get started</h2>
+      <MediaTabs/>
+    </div>
+  )
+}
+
+function SecondSection() {
+  return (
+    <section className='bg-white py-[120px]'>
+        <div className='container max-md:pr-0'>
+          <div className='flex flex-col space-y-24'>
+            {/* trending jobs */}
+            <Jobs/>
+            {/* top companies */}
+            <Companies/>
+            {/* tags */}
+            <TagsHandler/>
+            {/* browse collections */}
+            <CollectionHandler/>
+            {/* media */}
+            <MediaHandler/>
+          </div>
+        </div>
+      </section>
   )
 }
 
@@ -384,102 +509,31 @@ function FAQ() {
   )
 }
 
+function FourthSection() {
+  const image = "/img/background.png";
+  return (
+    <section className='py-[180px] bg-footer bg-cover bg-center'>
+      <div className='container'>
+        <div className='flex flex-col space-y-6'>
+          <h2 className='font-roboto text-7xl max-lg:text-6xl mx-auto max-md:mx-0'>Your one stop job shop.</h2>
+          <p className='flex justify-center space-y-3 max-md:justify-start text-xl'>Join to apply to 100’s of the best start up jobs.</p>
+          <div className='flex justify-center w-full space-x-6 max-md:flex-col max-md:space-y-6 max-md:space-x-0'>
+            <Button variant={"secondary"}>Start for free</Button>
+            <Button variant={"skeleton"}>Join as a company</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Main() {
   return (
     <main>
-      {/* first section */}
-      <section className='bg-neutral-950 py-[120px]'>
-        <div className='container'>
-          <div className='flex flex-col space-y-12'>
-            <h2 className='text-6xl text-white font-roboto max-w-[460px]'>Your new path
-            to hired.
-            </h2>
-            <div className='flex gap-24 flex-wrap max-md:gap-12'>
-              <FirstSectionCard/>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* second section */}
-      <section className='bg-white py-[120px]'>
-        <div className='container max-md:pr-0'>
-          <div className='flex flex-col space-y-24'>
-            {/* trending jobs */}
-            <div className='flex flex-col space-y-12 overflow-x-hidden'>
-              {/* title */}
-              <div className='flex justify-between items-end'>
-                <h2 className='text-5xl font-roboto w-fit'>Trending jobs</h2>
-                <a href='' className='flex items-center space-x-3 whitespace-nowrap max-sm:mr-4'>
-                  <span className='text-lg font-roboto'>View all</span>
-                  <i class="fa-solid fa-arrow-right-long"></i>
-                </a>
-              </div>
-              {/* card list */}
-              <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
-                <JobCard/>
-              </div>
-            </div>
-            {/* top companies */}
-            <div className='flex flex-col space-y-12 overflow-x-hidden'>
-              {/* title */}
-              <div className='flex justify-between items-end'>
-                <h2 className='text-5xl font-roboto w-fit'>Top companies</h2>
-                <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
-                  <span className='text-lg font-roboto'>View all</span>
-                  <i class="fa-solid fa-arrow-right-long"></i>
-                </a>
-              </div>
-              {/* card list */}
-              <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
-                <CompanyCard/>
-              </div>
-            </div>
-            {/* tags */}
-            <div className='flex flex-col space-y-12'>
-              <h2 className='text-5xl font-roboto w-fit'>Find your culture</h2>
-              <div className='flex flex-wrap gap-3'>
-                <Tag>Adventurous</Tag>
-                <Tag>Autonomous</Tag>
-                <Tag>Bold</Tag>
-                <Tag>Collaborative</Tag>
-                <Tag>Curious</Tag>
-                <Tag>Design Driven</Tag>
-                <Tag>Ego-Free</Tag>
-                <Tag>Empathetic</Tag>
-                <Tag>Empowering</Tag>
-                <Tag>Entrepreneurial</Tag>
-                <Tag>Fast Paced</Tag>
-                <Tag>Focused</Tag>
-                <Tag>Forward Thinking</Tag>
-                <Tag>Inclusive</Tag>
-                <Tag>Purposeful</Tag>
-              </div>
-            </div>
-            {/* browse collections */}
-            <div className='flex flex-col space-y-12'>
-              {/* title */}
-              <div className='flex justify-between items-end'>
-                <h2 className='text-5xl font-roboto w-fit'>Browse Collections</h2>
-                <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
-                  <span className='text-lg font-roboto'>View all</span>
-                  <i class="fa-solid fa-arrow-right-long"></i>
-                </a>
-              </div>
-              {/* card list */}
-              <div className='grid gap-6 grid-cols-4 flex-wrap max-2xl:grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1'>
-                <CollectionCard/>
-              </div>
-            </div>
-            {/* media */}
-            <div className='flex flex-col space-y-12'>
-              <h2 className='text-5xl font-roboto w-fit mx-auto'>It’s simple to get started</h2>
-              <MediaTabs/>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* third section */}
+      <FirstSection/>
+      <SecondSection/>
       <FAQ/>
+      <FourthSection/>
     </main>
   )
 }
