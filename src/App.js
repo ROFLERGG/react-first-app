@@ -4,17 +4,20 @@ import './index.css'
 function Button({ variant, children }) {
   if (variant === "primary") {
     return (
-      <button className='px-8 py-3 bg-white border border-black rounded-lg text-black font-roboto shadow-btn'>{children}</button>
+      <button className='px-8 py-3 bg-white border border-neutral-950 rounded-lg text-neutral-950 font-roboto shadow-btn'>{children}</button>
     );
   }
   if (variant === "secondary") {
     return (
-      <button className='px-8 py-3 bg-yellow-400 border border-black rounded-lg text-black font-roboto text-lg'>{children}</button>
+      <button className='px-8 py-3 bg-yellow-400 border border-neutral-950 rounded-lg text-neutral-950 font-roboto shadow-btn text-lg'>{children}</button>
     );
   };
   if (variant === "skeleton") {
     return (
-      <button className='px-8 py-3 border border-black rounded-lg text-neutral-950 font-roboto text-lg'>{children}</button>
+      <button className='relative px-8 py-3 border border-neutral-950 rounded-lg text-neutral-950 font-roboto text-lg'>
+        {children}
+        <div className='absolute top-[5px] left-[5px] w-full h-full border border-neutral-950 rounded-lg'></div>
+      </button>
     );
   };
 };
@@ -64,7 +67,7 @@ function Hero() {
                   The best place to discover & apply to the coolest start up jobs, without the black box.
                 </p>
                 <div className='flex space-x-6 justify-between max-sm:flex-col max-sm:space-x-0 max-sm:space-y-6'>
-                  <input type="text"  className='outline-none bg-white w-full rounded border border-black px-3 py-3 font-roboto'/>
+                  <input type="text" className='outline-none bg-white w-full rounded border border-black px-3 py-3 font-roboto' />
                   <div className='flex items-center space-x-0 max-sm:space-x-3'>
                     <div className='hidden w-full h-0.5 rounded-full bg-black flex-1 max-sm:block'></div>
                     <Button variant={"secondary"}>Explore</Button>
@@ -81,23 +84,23 @@ function Hero() {
 };
 
 const firstSectionCardList = [{
-    image: "/img/sectionCard-img1.png",
-    title: 'Apply to humans',
-    description: '72% of applications are never seen by a human! With parallel you skip the line and go direct to the hiring team.',
-  }, {
-    image: '/img/sectionCard-img2.png',
-    title: 'Instantly stand out',
-    description: 'Showcase your projects, passions and work ethos with Parallel Profile to stand out from the crowd.',
-  }, {
-    image: '/img/sectionCard-img3.png',
-    title: 'Real time feedback',
-    description: "Don't get ghosted! Get feedback & notifications with every application, so that you’re never left wondering."
-  }
+  image: "/img/sectionCard-img1.png",
+  title: 'Apply to humans',
+  description: '72% of applications are never seen by a human! With parallel you skip the line and go direct to the hiring team.',
+}, {
+  image: '/img/sectionCard-img2.png',
+  title: 'Instantly stand out',
+  description: 'Showcase your projects, passions and work ethos with Parallel Profile to stand out from the crowd.',
+}, {
+  image: '/img/sectionCard-img3.png',
+  title: 'Real time feedback',
+  description: "Don't get ghosted! Get feedback & notifications with every application, so that you’re never left wondering."
+}
 ];
 
 function FirstSectionCard() {
   return (
-    firstSectionCardList.map(function(data) {
+    firstSectionCardList.map(function (data) {
       return (
         <div className='flex-1 flex flex-col space-y-6 min-w-[300px]'>
           <div className='flex flex-col space-y-3'>
@@ -114,46 +117,46 @@ function FirstSectionCard() {
 function FirstSection() {
   return (
     <section className='bg-neutral-950 py-[120px]'>
-        <div className='container'>
-          <div className='flex flex-col space-y-12'>
-            <h2 className='text-6xl text-white font-roboto max-w-[460px]'>Your new path
+      <div className='container'>
+        <div className='flex flex-col space-y-12'>
+          <h2 className='text-6xl text-white font-roboto max-w-[460px]'>Your new path
             to hired.
-            </h2>
-            <div className='flex gap-24 flex-wrap max-md:gap-12'>
-              <FirstSectionCard/>
-            </div>
+          </h2>
+          <div className='flex gap-24 flex-wrap max-md:gap-12'>
+            <FirstSectionCard />
           </div>
         </div>
+      </div>
     </section>
   )
 }
 
 const JobCardList = [{
-    companyLogo: '/img/breef.png',
-    title: 'Product Manager (Operations)',
-    companyName: 'Breef',
-    location: 'New York or Remote'
-  }, {
-    companyLogo: '/img/faire.png',
-    title: 'Senior Site Reliability Engineer',
-    companyName: 'Faire',
-    location: 'Brazil'
-  }, {
-    companyLogo: '/img/ghia.png',
-    title: 'Event Worker',
-    companyName: 'Ghia',
-    location: 'Los Angeles / New York City'
-  }, {
-    companyLogo: '/img/mrBeast.png',
-    title: 'Talent Acquisition/Recruiting',
-    companyName: 'Mr. Beast',
-    location: 'Greenville NC'
-  }
+  companyLogo: '/img/breef.png',
+  title: 'Product Manager (Operations)',
+  companyName: 'Breef',
+  location: 'New York or Remote'
+}, {
+  companyLogo: '/img/faire.png',
+  title: 'Senior Site Reliability Engineer',
+  companyName: 'Faire',
+  location: 'Brazil'
+}, {
+  companyLogo: '/img/ghia.png',
+  title: 'Event Worker',
+  companyName: 'Ghia',
+  location: 'Los Angeles / New York City'
+}, {
+  companyLogo: '/img/mrBeast.png',
+  title: 'Talent Acquisition/Recruiting',
+  companyName: 'Mr. Beast',
+  location: 'Greenville NC'
+}
 ];
 
 function JobCard() {
   return (
-    JobCardList.map(function(card) {
+    JobCardList.map(function (card) {
       return (
         <a href='' className='group relative flex flex-col justify-between shrink-0 snap-start bg-white w-[340px] space-y-6 p-8 border border-black rounded-lg'>
           {/* card header */}
@@ -190,27 +193,27 @@ function JobCard() {
 };
 
 const CompanyCardList = [{
-    companyBg: '/img/companyBG1.png',
-    location: 'San Francisco, CA',
-    companyName: 'Webflow'
-  }, {
-    companyBg: '/img/companyBG2.png',
-    location: 'San Francisco, CA',
-    companyName: 'Patreon'
-  }, {
-    companyBg: '/img/companyBG3.png',
-    location: 'San Francisco, CA',
-    companyName: 'Faire'
-  }, {
-    companyBg: '/img/companyBG4.png',
-    location: 'New York, NY',
-    companyName: 'Breef'
-  }
+  companyBg: '/img/companyBG1.png',
+  location: 'San Francisco, CA',
+  companyName: 'Webflow'
+}, {
+  companyBg: '/img/companyBG2.png',
+  location: 'San Francisco, CA',
+  companyName: 'Patreon'
+}, {
+  companyBg: '/img/companyBG3.png',
+  location: 'San Francisco, CA',
+  companyName: 'Faire'
+}, {
+  companyBg: '/img/companyBG4.png',
+  location: 'New York, NY',
+  companyName: 'Breef'
+}
 ];
 
 function CompanyCard() {
   return (
-    CompanyCardList.map(function(card) {
+    CompanyCardList.map(function (card) {
       return (
         <a href='' className='relative flex flex-col justify-between shrink-0 snap-start bg-white w-[340px] border border-black rounded-lg'>
           <img src={card.companyBg} className='w-full h-24 object-cover object-center rounded-t-lg'></img>
@@ -245,18 +248,22 @@ function CompanyCard() {
 
 function Jobs() {
   return (
-    <div className='flex flex-col space-y-12 overflow-x-hidden'>
-      {/* title */}
-      <div className='flex justify-between items-end'>
-        <h2 className='text-5xl font-roboto w-fit'>Trending jobs</h2>
-        <a href='' className='flex items-center space-x-3 whitespace-nowrap max-sm:mr-4'>
-          <span className='text-lg font-roboto'>View all</span>
-          <i class="fa-solid fa-arrow-right-long"></i>
-        </a>
-      </div>
-      {/* card list */}
-      <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
-        <JobCard/>
+    <div>
+      <div className='container max-md:pr-0'>
+        <div className='flex flex-col space-y-12 overflow-x-hidden'>
+          {/* title */}
+          <div className='flex justify-between items-end'>
+            <h2 className='text-5xl font-roboto w-fit'>Trending jobs</h2>
+            <a href='' className='flex items-center space-x-3 whitespace-nowrap max-sm:mr-4'>
+              <span className='text-lg font-roboto'>View all</span>
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </a>
+          </div>
+          {/* card list */}
+          <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
+            <JobCard />
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -264,18 +271,22 @@ function Jobs() {
 
 function Companies() {
   return (
-    <div className='flex flex-col space-y-12 overflow-x-hidden'>
-      {/* title */}
-      <div className='flex justify-between items-end'>
-        <h2 className='text-5xl font-roboto w-fit'>Top companies</h2>
-        <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
-          <span className='text-lg font-roboto'>View all</span>
-          <i class="fa-solid fa-arrow-right-long"></i>
-        </a>
-      </div>
-      {/* card list */}
-      <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
-        <CompanyCard/>
+    <div>
+      <div className='container max-md:pr-0'>
+        <div className='flex flex-col space-y-12 overflow-x-hidden'>
+          {/* title */}
+          <div className='flex justify-between items-end'>
+            <h2 className='text-5xl font-roboto w-fit'>Top companies</h2>
+            <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
+              <span className='text-lg font-roboto'>View all</span>
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </a>
+          </div>
+          {/* card list */}
+          <div className='flex justify-between space-x-6 snap-x snap-mandatory'>
+            <CompanyCard />
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -289,81 +300,85 @@ function Tag(props) {
 
 function TagsHandler() {
   return (
-    <div className='flex flex-col space-y-12'>
-      <h2 className='text-5xl font-roboto w-fit'>Find your culture</h2>
-      <div className='flex flex-wrap gap-3'>
-        <Tag>Adventurous</Tag>
-        <Tag>Autonomous</Tag>
-        <Tag>Bold</Tag>
-        <Tag>Collaborative</Tag>
-        <Tag>Curious</Tag>
-        <Tag>Design Driven</Tag>
-        <Tag>Ego-Free</Tag>
-        <Tag>Empathetic</Tag>
-        <Tag>Empowering</Tag>
-        <Tag>Entrepreneurial</Tag>
-        <Tag>Fast Paced</Tag>
-        <Tag>Focused</Tag>
-        <Tag>Forward Thinking</Tag>
-        <Tag>Inclusive</Tag>
-        <Tag>Purposeful</Tag>
+    <div>
+      <div className='container'>
+        <div className='flex flex-col space-y-12'>
+          <h2 className='text-5xl font-roboto w-fit'>Find your culture</h2>
+          <div className='flex flex-wrap gap-3'>
+            <Tag>Adventurous</Tag>
+            <Tag>Autonomous</Tag>
+            <Tag>Bold</Tag>
+            <Tag>Collaborative</Tag>
+            <Tag>Curious</Tag>
+            <Tag>Design Driven</Tag>
+            <Tag>Ego-Free</Tag>
+            <Tag>Empathetic</Tag>
+            <Tag>Empowering</Tag>
+            <Tag>Entrepreneurial</Tag>
+            <Tag>Fast Paced</Tag>
+            <Tag>Focused</Tag>
+            <Tag>Forward Thinking</Tag>
+            <Tag>Inclusive</Tag>
+            <Tag>Purposeful</Tag>
+          </div>
+        </div>
       </div>
     </div>
   )
 }
 
 const collections = [{
-    image: "/img/collection1.png",
-    title: 'Women Led',
-    companies: 5,
-    jobs: 1,
-  }, {
-    image: "/img/collection2.png",
-    title: 'Wellness',
-    companies: 3,
-    jobs: 1,
-  }, {
-    image: "/img/collection3.png",
-    title: 'Web 3',
-    companies: 2,
-    jobs: 5,
-  }, {
-    image: "/img/collection4.png",
-    title: 'Music Tech',
-    companies: 1,
-    jobs: 1,
-  }, {
-    image: "/img/collection5.png",
-    title: 'Marketplaces',
-    companies: 2,
-    jobs: 17,
-  }, {
-    image: "/img/collection6.png",
-    title: 'Giving Back',
-    companies: 1,
-    jobs: 1,
-  }
+  image: "/img/collection1.png",
+  title: 'Women Led',
+  companies: 5,
+  jobs: 1,
+}, {
+  image: "/img/collection2.png",
+  title: 'Wellness',
+  companies: 3,
+  jobs: 1,
+}, {
+  image: "/img/collection3.png",
+  title: 'Web 3',
+  companies: 2,
+  jobs: 5,
+}, {
+  image: "/img/collection4.png",
+  title: 'Music Tech',
+  companies: 1,
+  jobs: 1,
+}, {
+  image: "/img/collection5.png",
+  title: 'Marketplaces',
+  companies: 2,
+  jobs: 17,
+}, {
+  image: "/img/collection6.png",
+  title: 'Giving Back',
+  companies: 1,
+  jobs: 1,
+}
 ];
 
 function CollectionCard() {
-  
+
   const [a, setA] = useState(collections);
-  
+
   useEffect(() => {
     window.addEventListener("resize", (e) => {
       if (window.innerWidth <= 640) {
         setA(collections.slice(0, 2))
-      } else  {
+      } else {
         setA(collections)
       }
     })
   }, [])
-  
+
   return (
-    a.map(function(card) {
+    a.map(function (card) {
       return (
         <a href='#' className='flex flex-col rounded-lg border border-neutral-950 bg-white'>
-          <img src={card.image} alt="collection" className='w-full h-48 object-cover object-center rounded-t-lg'/>
+          <img src={card.image} alt="collection" className='w-full h-48 object-cover object-center rounded-t-lg' />
           <div className='p-8 flex flex-col space-y-3'>
             <h2 className='text-2xl'>{card.title}</h2>
             <div className='flex items-center space-x-2'>
@@ -386,18 +401,22 @@ function CollectionCard() {
 
 function CollectionHandler() {
   return (
-    <div className='flex flex-col space-y-12'>
-      {/* title */}
-      <div className='flex justify-between items-end'>
-        <h2 className='text-5xl font-roboto w-fit'>Browse Collections</h2>
-        <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
-          <span className='text-lg font-roboto'>View all</span>
-          <i class="fa-solid fa-arrow-right-long"></i>
-        </a>
-      </div>
-      {/* card list */}
-      <div className='grid gap-6 grid-cols-4 flex-wrap max-2xl:grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1'>
-        <CollectionCard/>
+    <div>
+      <div className='container'>
+        <div className='flex flex-col space-y-12'>
+          {/* title */}
+          <div className='flex justify-between items-end'>
+            <h2 className='text-5xl font-roboto w-fit'>Browse Collections</h2>
+            <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
+              <span className='text-lg font-roboto'>View all</span>
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </a>
+          </div>
+          {/* card list */}
+          <div className='grid gap-6 grid-cols-4 flex-wrap max-2xl:grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1'>
+            <CollectionCard />
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -412,7 +431,7 @@ function MediaTabs() {
       <div class="flex flex-1 flex-col gap-3">
         {tabData.map((title, index) => {
           return (
-            <button onClick={() =>  setTab(index + 1)} className={`px-8 py-10 w-full border border-neutral-950 rounded-2xl duration-150 transition-all ease-in-out cursor-pointer ${tab === index + 1 ? "shadow-btn" : ""}`} >
+            <button onClick={() => setTab(index + 1)} className={`px-8 py-10 w-full border border-neutral-950 rounded-2xl duration-150 transition-all ease-in-out cursor-pointer ${tab === index + 1 ? "shadow-btn" : ""}`} >
               <div className='flex items-center space-x-6 text-2xl'>
                 <div className='flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl'>{index + 1}</div>
                 <span>{title}</span>
@@ -434,9 +453,13 @@ function MediaTabs() {
 
 function MediaHandler() {
   return (
-    <div className='flex flex-col space-y-12'>
-      <h2 className='text-5xl font-roboto w-fit mx-auto'>It’s simple to get started</h2>
-      <MediaTabs/>
+    <div>
+      <div className='container'>
+        <div className='flex flex-col space-y-12'>
+          <h2 className='text-5xl font-roboto w-fit mx-auto'>It’s simple to get started</h2>
+          <MediaTabs />
+        </div>
+      </div>
     </div>
   )
 }
@@ -444,37 +467,35 @@ function MediaHandler() {
 function SecondSection() {
   return (
     <section className='bg-white py-[120px]'>
-        <div className='container max-md:pr-0'>
-          <div className='flex flex-col space-y-24'>
-            {/* trending jobs */}
-            <Jobs/>
-            {/* top companies */}
-            <Companies/>
-            {/* tags */}
-            <TagsHandler/>
-            {/* browse collections */}
-            <CollectionHandler/>
-            {/* media */}
-            <MediaHandler/>
-          </div>
-        </div>
-      </section>
+      <div className='flex flex-col space-y-24'>
+        {/* trending jobs */}
+        <Jobs />
+        {/* top companies */}
+        <Companies />
+        {/* tags */}
+        <TagsHandler />
+        {/* browse collections */}
+        <CollectionHandler />
+        {/* media */}
+        <MediaHandler />
+      </div>
+    </section>
   )
 }
 
 const faqData = [
-  {title: "Why Parallel over Linkedin Jobs, or Zip Recruiter?", description: "123"},
-  {title: "What types of jobs are on Parallel?", description: "456"},
-  {title: "What does apply direct or get referred mean?", description: "789"},
-  {title: "Is Parallel free?", description: "101112"},
-  {title: "Do I submit my resume or profile?", description: "131415"},
-  {title: "Will more companies & jobs be added?", description: "161718"},
+  { title: "Why Parallel over Linkedin Jobs, or Zip Recruiter?", description: "123" },
+  { title: "What types of jobs are on Parallel?", description: "456" },
+  { title: "What does apply direct or get referred mean?", description: "789" },
+  { title: "Is Parallel free?", description: "101112" },
+  { title: "Do I submit my resume or profile?", description: "131415" },
+  { title: "Will more companies & jobs be added?", description: "161718" },
 ];
 
-const AccordionItem = ({title, description}) => {
+const AccordionItem = ({ title, description }) => {
   const [isActive, setActive] = useState(false);
   return (
-    <button onClick={() => {setActive(!isActive)}} className="px-8 py-10 bg-neutral-800 rounded-lg text-white space-y-6">
+    <button onClick={() => { setActive(!isActive) }} className="px-8 py-10 bg-neutral-800 rounded-lg text-white space-y-6">
       <div className="flex justify-between items-center space-x-6">
         <span className='text-xl text-start'>{title}</span>
         <i class="fa-solid fa-chevron-down fa-lg"></i>
@@ -486,9 +507,9 @@ const AccordionItem = ({title, description}) => {
 
 function FaqBtn() {
   return (
-    faqData.map(({title, description}) => {
+    faqData.map(({ title, description }) => {
       return (
-        <AccordionItem title={title} description={description}/>
+        <AccordionItem title={title} description={description} />
       )
     })
   )
@@ -497,22 +518,21 @@ function FaqBtn() {
 function FAQ() {
   return (
     <section className='bg-neutral-950 py-[120px]'>
-        <div className='container'>
-          <div className='flex flex-col space-y-12'>
-            <h2 className='text-5xl text-white font-roboto w-fit mx-auto'>FAQ</h2>
-            <div className='flex flex-col space-y-6'>
-              <FaqBtn/>
-            </div>
+      <div className='container'>
+        <div className='flex flex-col space-y-12'>
+          <h2 className='text-5xl text-white font-roboto w-fit mx-auto'>FAQ</h2>
+          <div className='flex flex-col space-y-6'>
+            <FaqBtn />
           </div>
         </div>
+      </div>
     </section>
   )
 }
 
 function FourthSection() {
-  const image = "/img/background.png";
   return (
-    <section className='py-[180px] bg-footer bg-cover bg-center'>
+    <section className='py-[180px] bg-footer bg-cover bg-center max-md:py-[120px]'>
       <div className='container'>
         <div className='flex flex-col space-y-6'>
           <h2 className='font-roboto text-7xl max-lg:text-6xl mx-auto max-md:mx-0'>Your one stop job shop.</h2>
@@ -530,10 +550,10 @@ function FourthSection() {
 function Main() {
   return (
     <main>
-      <FirstSection/>
-      <SecondSection/>
-      <FAQ/>
-      <FourthSection/>
+      <FirstSection />
+      <SecondSection />
+      <FAQ />
+      <FourthSection />
     </main>
   )
 }
@@ -542,8 +562,8 @@ function App() {
   return (
     // hero screen
     <>
-      <Hero/>
-      <Main/>
+      <Hero />
+      <Main />
     </>
   );
 }
