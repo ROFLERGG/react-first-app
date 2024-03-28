@@ -2,41 +2,22 @@ import React, { useEffect, useState } from 'react';
 import './index.css'
 import { cva } from 'class-variance-authority';
 
-// function Button({ variant, children }) {
-//   if (variant === "primary") {
-//     return (
-//       <button className='px-8 py-3 bg-white border border-neutral-950 rounded-lg text-neutral-950 font-roboto shadow-btn'>{children}</button>
-//     );
-//   }
-//   if (variant === "secondary") {
-//     return (
-//       <button className='px-8 py-3 bg-yellow-400 border border-neutral-950 rounded-lg text-neutral-950 font-roboto shadow-btn text-lg'>{children}</button>
-//     );
-//   };
-//   if (variant === "skeleton") {
-//     return (
-//       <button className='relative px-8 py-3 border border-neutral-950 rounded-lg text-neutral-950 font-roboto text-lg'>
-//         {children}
-//         <div className='absolute top-[5px] left-[5px] w-full h-full border border-neutral-950 rounded-lg'></div>
-//       </button>
-//     );
-//   };
-// };
-
 const buttonVariants = cva(
-  ["px-8 py-3 border border-neutral-950 rounded-lg text-neutral-950 font-roboto"],
+  ["px-8 py-3 border border-neutral-950 rounded-lg text-neutral-950 font-roboto whitespace-nowrap"],
   {
     variants: {
       variant: {
         primary: "bg-white",
         secondary: "bg-yellow-400 text-lg",
-        skeleton: "relative text-lg after:absolute after:top-[5px] after:left-[5px] after:w-full after:h-full"
+        skeleton: "relative text-lg after:absolute after:top-[5px] after:left-[5px] after:w-full after:h-full after:border after:border-neutral-950 after:rounded-lg"
       },
       color: {
         yellow: "bg-yellow-400",
         white: "bg-white",
         transparent: "bg-transparent"
       },
+      shadow: { active: "shadow-btn" },
+      width: { full: "w-full" }
     },
     defaultVariants: {
       variant: "primary",
@@ -56,7 +37,7 @@ function Header() {
         </div>
         <div className='flex flex-1 justify-end items-center space-x-6'>
           <a href="" className='py-3 px-3 leading-none'>Sign In</a>
-          <button className={buttonVariants({...props})}>Sign up Free</button>
+          <button className={buttonVariants({variant:'primary', shadow:'active'})}>Sign up Free</button>
         </div>
       </div>
       <button className='p-4 hidden max-lg:block'>
@@ -93,7 +74,7 @@ function Hero() {
                   <input type="text" className='outline-none bg-white w-full rounded border border-black px-3 py-3 font-roboto' />
                   <div className='flex items-center space-x-0 max-sm:space-x-3'>
                     <div className='hidden w-full h-0.5 rounded-full bg-black flex-1 max-sm:block'></div>
-                    <Button variant={"secondary"}>Explore</Button>
+                    <button className={buttonVariants({ variant:'secondary' })}>Explore</button>
                     <div className='hidden w-full h-0.5 rounded-full bg-black flex-1 max-sm:block'></div>
                   </div>
                 </div>
@@ -207,7 +188,7 @@ function JobCard() {
                 <p>Active Employees</p>
               </div>
             </div>
-            <Button variant={"primary"}>Apply Direct</Button>
+            <button className={buttonVariants({ variant:'primary', shadow:'active' })}>Apply Direct</button>
           </div>
         </a>
       )
@@ -260,7 +241,7 @@ function CompanyCard() {
                   <p>Active Employees</p>
                 </div>
               </div>
-              <Button variant={"primary"}>Browse Job</Button>
+              <button className={buttonVariants({ variant:'primary', shadow:'active' })}>Browse Job</button>
             </div>
           </div>
         </a>
@@ -275,7 +256,7 @@ function Jobs() {
       <div className='container max-md:pr-0'>
         <div className='flex flex-col space-y-12 overflow-x-hidden'>
           {/* title */}
-          <div className='flex justify-between items-end'>
+          <div className='flex justify-between items-end max-sm:flex-col max-sm:space-y-3 max-sm:items-start'>
             <h2 className='text-5xl font-roboto w-fit'>Trending jobs</h2>
             <a href='' className='flex items-center space-x-3 whitespace-nowrap max-sm:mr-4'>
               <span className='text-lg font-roboto'>View all</span>
@@ -298,7 +279,7 @@ function Companies() {
       <div className='container max-md:pr-0'>
         <div className='flex flex-col space-y-12 overflow-x-hidden'>
           {/* title */}
-          <div className='flex justify-between items-end'>
+          <div className='flex justify-between items-end max-sm:flex-col max-sm:space-y-3 max-sm:items-start'>
             <h2 className='text-5xl font-roboto w-fit'>Top companies</h2>
             <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
               <span className='text-lg font-roboto'>View all</span>
@@ -384,9 +365,7 @@ const collections = [{
 ];
 
 function CollectionCard() {
-
   const [a, setA] = useState(collections);
-
   useEffect(() => {
     window.addEventListener("resize", (e) => {
       if (window.innerWidth <= 640) {
@@ -400,19 +379,26 @@ function CollectionCard() {
   return (
     a.map(function (card) {
       return (
-        <a href='#' className='flex flex-col rounded-lg border border-neutral-950 bg-white'>
+        <a href='#' className='group/item flex flex-col rounded-lg border border-neutral-950 bg-white'>
           <img src={card.image} alt="collection" className='w-full h-48 object-cover object-center rounded-t-lg' />
-          <div className='p-8 flex flex-col space-y-3'>
-            <h2 className='text-2xl'>{card.title}</h2>
-            <div className='flex items-center space-x-2'>
-              <div className='flex items-center space-x-1'>
-                <span>{card.companies}</span>
-                <span className='leading-none'>Companies</span>
+          <div className='group/item p-8 flex justify-between items-center'>
+            <div className='flex flex-col space-y-3'>
+              <h2 className='text-2xl'>{card.title}</h2>
+                <div className='flex items-center space-x-2'>
+                <div className='flex items-center space-x-1'>
+                  <span>{card.companies}</span>
+                  <span className='leading-none'>Companies</span>
+                </div>
+                <div class="w-0.5 h-0.5 bg-black rounded-full"></div>
+                <div className='flex items-center space-x-1'>
+                  <span>{card.jobs}</span>
+                  <span>Jobs</span>
+                </div>
               </div>
-              <div class="w-0.5 h-0.5 bg-black rounded-full"></div>
-              <div className='flex items-center space-x-1'>
-                <span>{card.jobs}</span>
-                <span>Jobs</span>
+            </div>
+            <div className='group/btn group-hover/btn:bg-neutral-950 w-12 h-12 flex justify-center items-center border border-neutral-950 '>
+              <div className='group-hover/btn:text-white flex justify-center items-center'>
+                <i class="fa-solid fa-plus fa-xl"></i>
               </div>
             </div>
           </div>
@@ -428,7 +414,7 @@ function CollectionHandler() {
       <div className='container'>
         <div className='flex flex-col space-y-12'>
           {/* title */}
-          <div className='flex justify-between items-end'>
+          <div className='flex justify-between items-end max-sm:flex-col max-sm:space-y-3 max-sm:items-start'>
             <h2 className='text-5xl font-roboto w-fit'>Browse Collections</h2>
             <a href='' className='flex items-center space-x-3 whitespace-nowrap max-md:mr-4'>
               <span className='text-lg font-roboto'>View all</span>
@@ -463,7 +449,7 @@ function MediaTabs() {
           )
         })}
       </div>
-      <div class="flex-[2]">
+      <div class="flex-[2] max-lg:hidden">
         <div className={tab === 1 ? "block w-full h-full bg-neutral-400 rounded-2xl" : "hidden"}></div>
         <div className={tab === 2 ? "block w-full h-full bg-neutral-500 rounded-2xl" : "hidden"}></div>
         <div className={tab === 3 ? "block w-full h-full bg-neutral-600 rounded-2xl" : "hidden"}></div>
@@ -561,8 +547,8 @@ function FourthSection() {
           <h2 className='font-roboto text-7xl max-lg:text-6xl mx-auto max-md:mx-0'>Your one stop job shop.</h2>
           <p className='flex justify-center space-y-3 max-md:justify-start text-xl'>Join to apply to 100’s of the best start up jobs.</p>
           <div className='flex justify-center w-full space-x-6 max-md:flex-col max-md:space-y-6 max-md:space-x-0'>
-            <Button variant={"secondary"}>Start for free</Button>
-            <Button variant={"skeleton"}>Join as a company</Button>
+            <button className={buttonVariants({ variant:'secondary', shadow:'active' })}>Start for free</button>
+            <button className={buttonVariants({ variant:'skeleton' })}>Join as a company</button>
           </div>
         </div>
       </div>
@@ -570,33 +556,92 @@ function FourthSection() {
   )
 }
 
+const navData = [
+  { title: "Find Work", links: ["Explore Jobs", "Discover Companies", "Browse Collections"] },
+  { title: "Find People", links: ["Learn More", "Sign up"] },
+  { title: "Company", links: ["About us", "Careers", "Contact"] }
+];
+
+const NavSection = () => {
+  return (
+    navData.map(({ title, links }) => {
+      return (
+        <div className='flex flex-col space-y-3'>
+          <a href="" className='text-lg text-white'>{title}</a>
+          {links.map(link => {
+            return (
+              <a href="" className='text-neutral-300'>{link}</a>
+            )
+          })}
+        </div>
+      )
+    })
+  )
+}
+
+function Navigation() {
+  return (
+    <div className='flex gap-24 max-lg:justify-between max-lg:gap-12 flex-wrap'>
+      <NavSection/>
+    </div>
+  )
+}
+
+function FooterForm() {
+  return (
+    <form action="" method="post" className='flex items-center space-x-3 max-lg:justify-between max-sm:flex-col max-sm:space-x-0 max-sm:space-y-3 max-sm:items-start'>
+      <input type="email" name="email" placeholder='Email' className='px-3 py-3 w-[260px] max-lg:w-full placeholder:text-white text-white bg-neutral-700 outline-none rounded'/>
+      <button type="submit" className={buttonVariants({ variant:'primary' })}>Join us free</button>
+    </form>
+  )
+}
+
+function FooterTop() {
+  return (
+    <div className='flex justify-between space-x-12 max-lg:flex-col max-lg:space-x-0 max-lg:space-y-12'>
+      <div className='flex flex-col space-y-6'>
+        <h2 className='text-lg text-white font-roboto'>Hire Different ™</h2>
+        <div className='flex flex-col space-y-6'>
+          <FooterForm/>
+          <div className='flex space-x-6'>
+            <a href="" className='w-10 h-10 flex justify-center items-center border border-white text-white'>
+            </a>
+            <a href="" className='w-10 h-10 flex justify-center items-center border border-white text-white'>
+              <i class="fa-brands fa-twitter fa-lg"></i>
+            </a>
+            <a href="" className='w-10 h-10 flex justify-center items-center border border-white text-white'>
+              <i class="fa-solid fa-envelope fa-lg"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <Navigation/>
+    </div>
+  )
+}
+
+function FooterBottom() {
+  return (
+    <div className='flex flex-col space-y-12'>
+      <a href='/'>
+        <img src="/img/parallel.png" className='w-full' alt="parallel" />
+      </a>
+      <div className='flex items-center space-x-12 text-white max-md:flex-col max-md:space-x-0 max-md:space-y-6 max-sm:items-start'>
+        <span>2021 Parallel Group. All Rights Reserved,</span>
+        <a href="">Terms of Service</a>
+        <a href="">Privacy Policy</a>
+      </div>
+    </div>
+  )
+}
+
 function Footer() {
   return (
     <footer className='bg-neutral-950 py-[60px]'>
-      <div className='px-8'>
+      <div className='container px-8'>
         <div className='flex flex-col space-y-12'>
-          {/* top */}
-          <div className='flex justify-between'>
-            <div className='flex flex-col space-y-6'>
-              <h2 className='text-lg text-white font-roboto'>Hire Different ™</h2>
-              <div className='flex flex-col space-y-6'>
-                <form action="" method="post" className='flex items-center space-x-3'>
-                  <input type="email" name="email" className='px-3 py-3 w-[240px] text-white bg-neutral-700 outline-none rounded'/>
-                  <button type="submit">Join us free</button>
-                </form>
-              </div>
-            </div>
-
-            <div className='flex space-x-6'>
-              <div className='flex flex-col space-y-3'></div>
-              <div className='flex flex-col space-y-3'></div>
-              <div className='flex flex-col space-y-3'></div>
-            </div>
-          </div>
-          {/* main */}
-          <div></div>
-          {/* bottom */}
-          <div></div>
+          <FooterTop/>
+          <FooterBottom/>
         </div>
       </div>
     </footer>
