@@ -440,7 +440,7 @@ function MediaTabs() {
       <div class="flex flex-1 flex-col gap-3">
         {tabData.map((title, index) => {
           return (
-            <button onClick={() => setTab(index + 1)} className={`btn-inactive ${tab === index + 1 ? "btn-active" : ""}`} >
+            <button onClick={() => setTab(index + 1)} className={`${tab === index + 1 ? "btn-active" : "btn-inactive"}`} >
               <div className='flex items-center space-x-6 text-2xl'>
                 <div className={`flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl ${tab === index + 1 ? "bg-yellow-300" : ""}`}>{index + 1}</div>
                 <span className='text-start'>{title}</span>
