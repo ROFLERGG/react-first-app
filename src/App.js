@@ -440,8 +440,8 @@ function MediaTabs() {
       <div class="flex flex-1 flex-col gap-3">
         {tabData.map((title, index) => {
           return (
-            <button onClick={() => setTab(index + 1)} className={`${tab === index + 1 ? "btn-active" : "btn-inactive"}`} >
-              <div className='flex items-center space-x-6 text-2xl'>
+            <button onClick={() => setTab(index + 1)} className={` ${tab === index + 1 ? "btn-active" : "btn-inactive"}`} >
+              <div className='flex items-center space-x-6 text-2xl max-sm:text-base'>
                 <div className={`flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl ${tab === index + 1 ? "bg-yellow-300" : ""}`}>{index + 1}</div>
                 <span className='text-start'>{title}</span>
               </div>
@@ -450,11 +450,11 @@ function MediaTabs() {
         })}
       </div>
       <div class="flex-[2] max-lg:hidden">
-        <div className={tab === 1 ? "block w-full h-full bg-neutral-400 rounded-2xl" : "hidden"}></div>
-        <div className={tab === 2 ? "block w-full h-full bg-neutral-500 rounded-2xl" : "hidden"}></div>
-        <div className={tab === 3 ? "block w-full h-full bg-neutral-600 rounded-2xl" : "hidden"}></div>
-        <div className={tab === 4 ? "block w-full h-full bg-neutral-700 rounded-2xl" : "hidden"}></div>
-        <div className={tab === 5 ? "block w-full h-full bg-neutral-800 rounded-2xl" : "hidden"}></div>
+        <div className={tab === 1 ? "block w-full h-[540px] bg-neutral-400 rounded-2xl" : "hidden"}></div>
+        <div className={tab === 2 ? "block w-full h-[540px] bg-neutral-500 rounded-2xl" : "hidden"}></div>
+        <div className={tab === 3 ? "block w-full h-[540px] bg-neutral-600 rounded-2xl" : "hidden"}></div>
+        <div className={tab === 4 ? "block w-full h-[540px] bg-neutral-700 rounded-2xl" : "hidden"}></div>
+        <div className={tab === 5 ? "block w-full h-[540px] bg-neutral-800 rounded-2xl" : "hidden"}></div>
       </div>
     </div>
   )
