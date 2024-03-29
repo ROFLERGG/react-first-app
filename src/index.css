@@ -8,4 +8,10 @@
   html {
     @apply font-work;
   }
+  .btn-inactive {
+    @apply py-10 w-full border border-transparent rounded-2xl duration-150 transition-all ease-in-out cursor-pointer;
+  }
+  .btn-active {
+    @apply px-8 py-10 w-full border border-neutral-950 rounded-2xl duration-150 transition-all ease-in-out cursor-pointer shadow-btn;
+  }
 }
