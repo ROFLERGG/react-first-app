@@ -26,12 +26,23 @@ const buttonVariants = cva(
   }
 )
 
+function Menu() {
+  return (
+    <details className='flex flex-col'>
+      <summary>Hi</summary>
+      <p>Lorem, ipsum.</p>
+    </details>
+  )
+}
+
 function Header() {
+  const [isOpen, setOpen] = useState(false);
+
   return (
     <header className='flex items-center px-8 py-4 max-lg:justify-end max-lg:px-2 max-lg:py-0'>
       <div className='flex w-full max-lg:hidden'>
         <div className='flex-1'></div>
-        <div className='flex flex-1 justify-center space-x-6'>
+        <div className='flex flex-1 justify-center items-center space-x-6'>
           <a href="" className='py-3 px-3 leading-none'>Find Jobs</a>
           <a href="" className='py-3 px-3 leading-none'>For Companies</a>
         </div>
@@ -437,12 +448,12 @@ function MediaTabs() {
   const [tab, setTab] = useState(1);
   return (
     <div className='flex justify-between gap-12'>
-      <div class="flex flex-1 flex-col gap-3">
+      <div class="flex flex-1 flex-col justify-between gap-3 max-lg:gap-6">
         {tabData.map((title, index) => {
           return (
-            <button onClick={() => setTab(index + 1)} className={` ${tab === index + 1 ? "btn-active" : "btn-inactive"}`} >
+            <button onClick={() => setTab(index + 1)} className={`${tab === index + 1 ? "btn-active btn-md" : "btn-inactive"}`} >
               <div className='flex items-center space-x-6 text-2xl max-sm:text-base'>
-                <div className={`flex justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl ${tab === index + 1 ? "bg-yellow-300" : ""}`}>{index + 1}</div>
+                <div className={`flex flex-none justify-center items-center w-12 h-12 border border-neutral-950 rounded-2xl ${tab === index + 1 ? "bg-yellow-300" : ""}`}>{index + 1}</div>
                 <span className='text-start'>{title}</span>
               </div>
             </button>
