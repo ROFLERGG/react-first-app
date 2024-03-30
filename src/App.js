@@ -26,20 +26,12 @@ const buttonVariants = cva(
   }
 )
 
-function Menu() {
-  return (
-    <details className='flex flex-col'>
-      <summary>Hi</summary>
-      <p>Lorem, ipsum.</p>
-    </details>
-  )
-}
-
 function Header() {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <header className='flex items-center px-8 py-4 max-lg:justify-end max-lg:px-2 max-lg:py-0'>
+    <header className='fixed z-50 flex items-center w-full px-8 py-4 max-lg:justify-end max-lg:px-2 max-lg:py-0 bg-white'>
+      {/* desktop */}
       <div className='flex w-full max-lg:hidden'>
         <div className='flex-1'></div>
         <div className='flex flex-1 justify-center items-center space-x-6'>
@@ -51,13 +43,26 @@ function Header() {
           <button className={buttonVariants({variant:'primary', shadow:'active'})}>Sign up Free</button>
         </div>
       </div>
-      <button className='p-4 hidden max-lg:block'>
+      {/* mobile */}
+      <button className='p-4 hidden max-lg:block' onClick={() => setOpen(!isOpen)}>
         <div className='flex flex-col justify-center space-y-1 w-8 h-8'>
           <div className='w-full h-0.5 bg-black rounded-full'></div>
           <div className='w-full h-0.5 bg-black rounded-full'></div>
           <div className='w-full h-0.5 bg-black rounded-full'></div>
         </div>
       </button>
+      {isOpen && 
+      <div className='absolute top-16 right-0 z-20 w-full bg-white translate-x-full'>
+        <div className='flex justify-center'>
+          <div className='flex flex-col space-y-3 text-center'>
+            <a href='' className='p-4'>Find Jobs</a>
+            <a href='' className='p-4'>For Companies</a>
+            <a href='' className='p-4'>Sign In</a>
+            <a href='' className='p-4'>Sign up Free</a>
+          </div>
+        </div>
+      </div>
+      }
     </header>
   )
 };
@@ -173,7 +178,7 @@ function JobCard() {
   return (
     JobCardList.map(function (card) {
       return (
-        <a href='' className='group relative flex flex-col justify-between shrink-0 snap-start bg-white w-[340px] space-y-6 p-8 border border-black rounded-lg'>
+        <a href='' className='group relative z-10 flex flex-col justify-between shrink-0 snap-start bg-white w-[340px] space-y-6 p-8 border border-black rounded-lg'>
           {/* card header */}
           <div className='flex flex-col space-y-3'>
             <div className='flex justify-between items-start'>
@@ -672,7 +677,6 @@ function Main() {
 
 function App() {
   return (
-    // hero screen
     <>
       <Hero />
       <Main />
