@@ -30,7 +30,7 @@ function Header() {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <header className='fixed z-50 flex items-center w-full px-8 py-4 max-lg:justify-end max-lg:px-2 max-lg:py-0 bg-white'>
+    <header className='fixed z-50 flex items-center w-full px-8 py-4 max-lg:justify-end max-lg:px-1 max-lg:py-0 bg-white'>
       {/* desktop */}
       <div className='flex w-full max-lg:hidden'>
         <div className='flex-1'></div>
@@ -44,17 +44,18 @@ function Header() {
         </div>
       </div>
       {/* mobile */}
-      <button className='p-4 hidden max-lg:block' onClick={() => setOpen(!isOpen)}>
-        <div className='flex flex-col justify-center space-y-1 w-8 h-8'>
-          <div className='w-full h-0.5 bg-black rounded-full'></div>
-          <div className='w-full h-0.5 bg-black rounded-full'></div>
-          <div className='w-full h-0.5 bg-black rounded-full'></div>
+      <button className='z-50 p-4 hidden max-lg:block' onClick={() => setOpen(!isOpen)}>
+        <div className='w-8 h-8 flex flex-col justify-center'>
+          <div className='relative flex items-center w-full h-4'>
+            <div className={`absolute w-8 h-[3px] bg-black rounded-full duration-500 ${isOpen ? "rotate-45 self-center" : "top-0"}`}></div>
+            <div className={`absolute w-8 h-[3px] bg-black rounded-full duration-500 ${isOpen ? "opacity-0" : ""}`}></div>
+            <div className={`absolute w-8 h-[3px] bg-black rounded-full duration-500 ${isOpen ? "-rotate-45 self-center" : "bottom-0"}`}></div>
+          </div>
         </div>
       </button>
-      {isOpen && 
-      <div className='absolute top-16 right-0 z-20 w-full bg-white translate-x-full'>
-        <div className='flex justify-center'>
-          <div className='flex flex-col space-y-3 text-center'>
+      <div className={`absolute top-0 z-20 w-full h-screen bg-white duration-500 ${isOpen ? "left-0" : "left-full"}`}>
+        <div className='flex flex-col justify-center items-center h-full'>
+          <div className='flex flex-col space-y-6 text-center text-xl'>
             <a href='' className='p-4'>Find Jobs</a>
             <a href='' className='p-4'>For Companies</a>
             <a href='' className='p-4'>Sign In</a>
@@ -62,7 +63,6 @@ function Header() {
           </div>
         </div>
       </div>
-      }
     </header>
   )
 };
